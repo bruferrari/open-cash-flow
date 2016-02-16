@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="DefaultLayout">
+<head>
+    <title>OCF - All Registries</title>
+</head>
+
+<section layout:fragment="content">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="clearfix">
+                <h1 class="panel-title f-title-panel">Registries</h1>
+                <a class="btn btn-link f-link-panel" th:href="@{/registries/new}">New Registry</a>
+            </div>
+        </div>
+
+        <div class="panel-body">
+
+            <form method="get" class="form-horizontal" th:action="@{/registries}" th:object="${filter}">
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input class="form-control" placeholder="Search by title..." autofocus="autofocus"
+                                th:field="*{title}"/>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div th:if="${filter.title == null || #strings.isEmpty(filter.title)}"
+                         class="label label-default panel-default pull-right">Showing daily registries</div>
+                </div>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th>Title</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-right">Category</th>
+                        <th class="text-right">Amount</th>
+                        <th class="text-center">Source</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr th:each="registry : ${registries}">
+                        <td class="text-center" th:text="${registry.id}"></td>
+                        <td th:text="${registry.title}"></td>
+                        <td class="text-center" th:text="${{registry.date}}"></td>
+                        <td class="text-right" th:text="${registry.category.description}"></td>
+                        <td class="text-right" th:text="|R$ ${{registry.amount}}"></td>
+                        <td class="text-center" th:attr="data-role=${registry.id}">
+                            <span class="label" th:text="${registry.status.description}"
+                                  th:classappend="${(registry.credit) ? 'label-success' : 'label-danger'}"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="6" th:if="${#lists.isEmpty(registries)}">No records found.</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div class="col-md-7 pull-right">
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Credit</th>
+                            <th class="text-center">Debit</th>
+                            <th class="text-center">Balance</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td class="text-center" th:text="|R$ ${{balance.credit}}"></td>
+                            <td class="text-center" th:text="|R$ ${{balance.debit}}"></td>
+                            <td class="text-center f-balance-positive" th:text="|R$ ${{balance.balance}}"
+                                th:classappend="${balance.negative} ? 'f-balance-negative'"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</html>
