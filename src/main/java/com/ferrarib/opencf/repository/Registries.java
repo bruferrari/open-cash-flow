@@ -32,5 +32,12 @@ public interface Registries extends JpaRepository<Registry, Long> {
     @Query("select r from #{#entityName} r where r.date between ?1 and ?2")
     List<Registry> findByDateBetween(Date from, Date to);
 
+    @Modifying
+    @Transactional
+    @Query("select r from #{#entityName} r where r.date = ?1")
+    List<Registry> findByDate(Date date);
+
     List<Registry> findByTitleContaining(String title);
+
+
 }

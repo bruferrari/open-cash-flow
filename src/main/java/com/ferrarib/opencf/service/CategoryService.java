@@ -20,4 +20,11 @@ public class CategoryService {
         return categories.findAll();
     }
 
+    public void save(Category category) {
+        categories.save(category);
+    }
+
+    public void remove(Long id) {
+        categories.delete(id);
+    }
 }

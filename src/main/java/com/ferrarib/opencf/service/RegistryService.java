@@ -2,13 +2,13 @@ package com.ferrarib.opencf.service;
 
 import com.ferrarib.opencf.filter.RegistryFilter;
 import com.ferrarib.opencf.model.Registry;
-import com.ferrarib.opencf.model.RegistryStatus;
-import com.ferrarib.opencf.model.Balance;
+import com.ferrarib.opencf.model.charts.DailyBalance;
+import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.repository.Registries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +29,7 @@ public class RegistryService {
     }
 
     public void save(Registry registry) {
+
         repository.save(registry);
     }
 
@@ -41,5 +42,9 @@ public class RegistryService {
         if(filter.getFrom() != null && filter.getTo() != null)
             return repository.findByDateBetween(filter.getFrom(), filter.getTo());
         return null;
+    }
+
+    public List<Registry> findByDate(Date date) {
+        return repository.findByDate(date);
     }
 }

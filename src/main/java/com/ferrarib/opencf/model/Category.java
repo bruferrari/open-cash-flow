@@ -1,9 +1,12 @@
 package com.ferrarib.opencf.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by bruno on 2/13/16.
@@ -14,14 +17,20 @@ public class Category {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Description field is required")
     private String description;
+
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @NotNull
+    private Date registerDate;
+
+    public Category() {
+        this.registerDate = Calendar.getInstance().getTime();
+    }
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getDescription() {
@@ -31,4 +40,9 @@ public class Category {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Date getRegisterDate() {
+        return registerDate;
+    }
+
 }

@@ -34,4 +34,8 @@ public class RegistryFilter {
     public void setTo(Date to) {
         this.to = to;
     }
+
+    public boolean isExisting() {
+        return this.getTitle() == null || this.getTitle().isEmpty() ? false : true;
+    }
 }

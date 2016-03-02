@@ -26,7 +26,8 @@ public class Registry {
     @Temporal(TemporalType.DATE)
     private Date date;
 
-    @OneToOne
+    @ManyToOne
+//    @JoinColumn(name = "category_id")
     private Category category;
 
     @NotNull(message = "Amount field is required")
@@ -102,5 +103,17 @@ public class Registry {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Registry{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", date=" + date +
+                ", category=" + category.getId() +
+                ", amount=" + amount +
+                ", status=" + status +
+                '}';
     }
 }

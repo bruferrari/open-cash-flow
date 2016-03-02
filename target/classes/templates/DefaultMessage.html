@@ -4,6 +4,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
     <div class="alert alert-success" th:if="${!#strings.isEmpty(message)}">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <span th:text="${message}"></span>
     </div>
 </html>

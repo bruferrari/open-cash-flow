@@ -42,7 +42,9 @@ public class RegistryController {
 
         List<Registry> result = service.filter(filter);
         mv.addObject("registries", result);
-        mv.addObject("balance", new Balance(result));
+        if(!filter.isExisting()) {
+            mv.addObject("balance", new Balance(result));
+        }
 
         return mv;
     }
@@ -66,7 +68,7 @@ public class RegistryController {
             attrb.addFlashAttribute("message", registry.getTitle() + " has been stored with success!");
             return "redirect:/registries/new";
         } catch (DataIntegrityViolationException e) {
-            errors.rejectValue("data", null, "Invalid date format");
+            errors.rejectValue("date", null, "Invalid date format");
             return NEW_REGISTER;
         }
     }
