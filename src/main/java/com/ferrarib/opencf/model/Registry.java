@@ -27,7 +27,6 @@ public class Registry {
     private Date date;
 
     @ManyToOne
-//    @JoinColumn(name = "category_id")
     private Category category;
 
     @NotNull(message = "Amount field is required")

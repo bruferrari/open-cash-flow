@@ -2,51 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98314d4b-c090-49a9-9870-a63a044df8df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/CategoryController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalance.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalanceWrapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/MonthlyBalance.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/MonthlyBalanceWrapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/DailyBalanceService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/js/charts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/ConfirmRemoveCategory.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/ListCategories.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/NewCategoryDialog.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/Reports.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/OpencfApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/OpencfApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/config/WebSecurityConfig.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/config/WebSecurityConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/controller/RegistryController.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/controller/RegistryController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/filter/RegistryFilter.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/filter/RegistryFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Category.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Category.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Registry.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Registry.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/service/CategoryService.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/service/CategoryService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/service/RegistryService.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/service/RegistryService.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoing.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoingWrapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/OpencfApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/OpencfApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/config/WebSecurityConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/config/WebSecurityConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/RegistryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/RegistryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/filter/RegistryFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/filter/RegistryFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Category.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Category.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/CategoryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/CategoryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/AllRegistries.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/AllRegistries.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/DefaultMessage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/DefaultMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ErrorMessage.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ErrorMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/Header.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/Header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ConfirmRemoveCategory.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ConfirmRemoveCategory.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ListCategories.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ListCategories.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/NewCategoryDialog.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/NewCategoryDialog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/NewRegister.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/NewRegister.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/ferrarib/OpencfApplicationTests.java" afterPath="$PROJECT_DIR$/src/test/java/com/ferrarib/OpencfApplicationTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/AllRegistries.html" afterPath="$PROJECT_DIR$/target/classes/templates/AllRegistries.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/DefaultMessage.html" afterPath="$PROJECT_DIR$/target/classes/templates/DefaultMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/ErrorMessage.html" afterPath="$PROJECT_DIR$/target/classes/templates/ErrorMessage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/Header.html" afterPath="$PROJECT_DIR$/target/classes/templates/Header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/NewRegister.html" afterPath="$PROJECT_DIR$/target/classes/templates/NewRegister.html" />
     </list>
     <ignored path="opencf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,16 +38,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Registry.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="charts.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/charts.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reports.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Reports.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Reports.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.255137">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+            <state vertical-scroll-proportion="-6.2083335">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -112,41 +70,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegistryService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1505#1506#0" expanded="true" />
-                <element signature="e#1555#1556#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1090#1091#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1284#1285#0" expanded="true" />
-                <element signature="e#1336#1337#0" expanded="true" />
+                <element signature="e#1099#1100#0" expanded="true" />
+                <element signature="e#1149#1150#0" expanded="true" />
+                <element signature="e#1293#1294#0" expanded="true" />
+                <element signature="e#1345#1346#0" expanded="true" />
+                <element signature="e#1495#1496#0" expanded="true" />
+                <element signature="e#1549#1550#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChartService.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChartService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.39144737">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -154,14 +100,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DailyBalances.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java">
+      <file leaf-file-name="CategoryOutgoingWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoingWrapper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#258#259#0" expanded="true" />
+                <element signature="e#298#299#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Registries.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -190,8 +147,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/templates/Welcome.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/com/ferrarib/opencf/model/RegistryStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/com/ferrarib/opencf/model/Registry.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/RegistryRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Total.java" />
@@ -203,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Categories.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/AllRegistries.html" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/RegistryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Category.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/NewRegister.html" />
@@ -232,15 +186,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalance.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Balance.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/ferrarib/OpencfApplicationTests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalance.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/DailyBalanceService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/charts.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/Reports.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoingWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoing.java" />
       </list>
     </option>
   </component>
@@ -1211,7 +1168,7 @@
       <workItem from="1455645481390" duration="2281000" />
       <workItem from="1455764254364" duration="14998000" />
       <workItem from="1456350175548" duration="9386000" />
-      <workItem from="1456714994598" duration="42587000" />
+      <workItem from="1456714994598" duration="48688000" />
     </task>
     <servers />
   </component>
@@ -1227,7 +1184,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122344000" />
+    <option name="totallyTimeSpent" value="128445000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="0" />
@@ -1291,26 +1248,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/config/WebSecurityConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1444,8 +1381,8 @@
         <state vertical-scroll-proportion="0.44407895">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="false" />
+            <element signature="e#633#634#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1624,14 +1561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Balance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17269737">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/ferrarib/OpencfApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1650,23 +1579,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalance.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Reports.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049342107">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#494#495#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#678#679#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-6.2083335">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46875">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/RegistryService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.77796054">
           <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1676,60 +1607,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Balance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="35" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1336#1337#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/DailyBalanceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.17269737">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1744,11 +1625,82 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/Reports.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/DailyBalanceService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.255137">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/DailyBalance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30756578">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/DailyBalances.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.098684214">
+          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#1495#1496#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoingWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="78" selection-start-line="15" selection-start-column="78" selection-end-line="15" selection-end-column="78" />
+          <folding>
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/repository/Registries.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/charts/CategoryOutgoing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44407895">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ChartService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39144737">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

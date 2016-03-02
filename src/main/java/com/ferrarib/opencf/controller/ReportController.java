@@ -1,9 +1,9 @@
 package com.ferrarib.opencf.controller;
 
+import com.ferrarib.opencf.model.charts.CategoryOutgoingWrapper;
 import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.model.charts.MonthlyBalanceWrapper;
 import com.ferrarib.opencf.service.ChartService;
-import com.ferrarib.opencf.service.DailyBalanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +35,11 @@ public class ReportController {
     @RequestMapping(value = "monthlyBalance", method = RequestMethod.GET)
     public @ResponseBody MonthlyBalanceWrapper getMonthlyBalance() {
         return service.monthlyBalanceChart();
+    }
+
+    @RequestMapping(value = "categoryOutgoing", method = RequestMethod.GET)
+    public @ResponseBody CategoryOutgoingWrapper getCategoryOutgoing() {
+        return service.categoryOutgoingChart();
     }
 
 }

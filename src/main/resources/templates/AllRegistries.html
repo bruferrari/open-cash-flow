@@ -56,7 +56,7 @@
                         <td class="text-center" th:text="${registry.id}"></td>
                         <td th:text="${registry.title}"></td>
                         <td class="text-center" th:text="${{registry.date}}"></td>
-                        <td class="text-right" th:text="${registry.category.description}"></td>
+                        <td class="text-right" th:text="${registry.categoryName.description}"></td>
                         <td class="text-right" th:text="|R$ ${{registry.amount}}"></td>
                         <td class="text-center" th:attr="data-role=${registry.id}">
                             <span class="label" th:text="${registry.status.description}"

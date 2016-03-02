@@ -1,6 +1,7 @@
 package com.ferrarib.opencf.repository;
 
 import com.ferrarib.opencf.model.Registry;
+import com.ferrarib.opencf.model.charts.CategoryOutgoing;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -39,5 +40,8 @@ public interface Registries extends JpaRepository<Registry, Long> {
 
     List<Registry> findByTitleContaining(String title);
 
-
+    @Modifying
+    @Transactional
+    @Query("select r.amount, r.category.description from #{#entityName} r where month(date) = month(current_date)")
+    List<Object[]> findCategoryOutgoing();
 }

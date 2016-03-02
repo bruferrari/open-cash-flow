@@ -11,7 +11,7 @@
                 <h4 class="modal-title">Register New Category</h4>
             </div>
 
-            <form method="post" th:action="@{/categories}" th:object="${category}">
+            <form method="post" th:action="@{/categories}" th:object="${categoryName}">
 
                 <div class="modal-body">
                         <div class="form-group" th:classappend="${#fields.hasErrors('description')} ? has-error">
