@@ -5,6 +5,7 @@
       layout:decorator="DefaultLayout">
 <head>
     <title>OCF - Reports</title>
+    <script th:src="@{/js/jquery-2.2.0.min.js}"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" th:src="@{/js/charts.js}"></script>
 </head>
@@ -13,19 +14,21 @@
 
         <div class="panel-body">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#balance" data-toggle="tab">Balance</a></li>
-                <li role="presentation"><a href="#opt2" data-toggle="tab">Option 2</a></li>
+                <li role="presentation" class="active"><a href="#daily" data-toggle="tab">Daily</a></li>
+                <li role="presentation"><a href="#monthly" data-toggle="tab">Monthly</a></li>
                 <li role="presentation"><a href="#opt3" data-toggle="tab">Option 3</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade in active" id="balance">
+                <div class="tab-pane fade in active" id="daily">
                     <div id="chart_div"></div>
-                    <div id="monthly_chart_div"></div>
                 </div>
 
-                <div class="tab-pane fade" id="opt2">Content inside tab B</div>
+                <div class="tab-pane fade" id="monthly">
+                    <div id="monthly_chart_div"></div>
+                    <div class="col-md-6" style="height: 500px" id="category_outgoing_chart_div"></div>
+                </div>
                 <div class="tab-pane fade" id="opt3">Content inside tab C</div>
             </div>
 

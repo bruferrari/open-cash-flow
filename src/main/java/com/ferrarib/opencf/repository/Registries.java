@@ -42,6 +42,8 @@ public interface Registries extends JpaRepository<Registry, Long> {
 
     @Modifying
     @Transactional
-    @Query("select r.amount, r.category.description from #{#entityName} r where month(date) = month(current_date)")
+    @Query("select sum(r.amount), r.category.description from #{#entityName} r " +
+            "where month(date) = month(current_date) and r.status = 'DEBIT' " +
+            "group by r.category.description")
     List<Object[]> findCategoryOutgoing();
 }

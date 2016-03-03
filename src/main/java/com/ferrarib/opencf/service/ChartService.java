@@ -49,24 +49,6 @@ public class ChartService {
         return wrapper;
     }
 
-//    public DailyBalanceWrapper dailyBalanceChart() {
-//        List<DailyBalance> result = new ArrayList<>();
-//        Calendar cal = Calendar.getInstance();
-//
-//        for(int i = 0; i < 15; i++) {
-//            DailyBalance bal = new DailyBalance();
-//
-//            cal.add(Calendar.DATE, -1);
-//
-//            bal.setDate(cal.getTime());
-//            bal.setBalance(BigDecimal.valueOf(Math.random() * 10000));
-//            result.add(bal);
-//        }
-//        DailyBalanceWrapper wrapper = new DailyBalanceWrapper();
-//        wrapper.setDailyBalances(result);
-//        return wrapper;
-//    }
-
     public MonthlyBalanceWrapper monthlyBalanceChart() {
         List<MonthlyBalance> result = new ArrayList<>();
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};

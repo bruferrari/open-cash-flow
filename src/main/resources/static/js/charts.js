@@ -4,6 +4,17 @@
 google.load('visualization', '1', {'packages' : ['corechart']});
 google.setOnLoadCallback(drawDailyChart, true);
 google.setOnLoadCallback(drawMonthlyChart, true);
+google.setOnLoadCallback(drawCategoryOutgoingChart, true);
+
+$(window).resize(function() {
+    drawDailyChart();
+    drawMonthlyChart();
+    drawCategoryOutgoingChart();
+});
+
+//$("a[href='#monthly']").on('shown.bs.tab', function(e) {
+//    drawMonthlyChart();
+//});
 
 function drawDailyChart() {
     $.ajax({
@@ -29,6 +40,7 @@ function drawDailyChart() {
             var options = {
                 title: 'Daily Balance',
                 is3D: true,
+                width: '100%',
                 hAxis: {
                   format: 'dd/MM'
                 },
@@ -68,6 +80,7 @@ function drawMonthlyChart() {
             var options = {
                 title: 'Monthly Balance',
                 is3D: true,
+                width: '100%',
                 animation: {
                     startup: true,
                     duration: 1500,
@@ -79,6 +92,46 @@ function drawMonthlyChart() {
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('monthly_chart_div'));
+            chart.draw(data, options);
+        }
+    });
+}
+
+function drawCategoryOutgoingChart() {
+    $.ajax({
+        url: '/reports/categoryOutgoing',
+        dataType: 'json',
+        success: function(jsonData) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'categoryName');
+            data.addColumn('number', 'amount');
+
+            for(var i = 0; i < jsonData.categoryOutgoings.length; i++) {
+                var n = Number(jsonData.categoryOutgoings[i].amount);
+                data.addRow([jsonData.categoryOutgoings[i].categoryName, n]);
+
+            }
+
+            var formatter = new google.visualization.NumberFormat({
+                negativeColor: 'red',
+                negativeParens: true,
+                pattern: 'R$ #,##0.00'
+            });
+
+            var options = {
+                title: 'Category Outgoing',
+                width: '100%',
+                animation: {
+                    startup: true,
+                    duration: 1500,
+                    easing: 'linear'
+                },
+                pieHole: 0.4,
+            };
+
+            formatter.format(data, 1);
+
+            var chart = new google.visualization.PieChart(document.getElementById('category_outgoing_chart_div'));
             chart.draw(data, options);
         }
     });

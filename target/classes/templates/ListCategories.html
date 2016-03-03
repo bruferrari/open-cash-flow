@@ -34,19 +34,19 @@
                     </thead>
 
                     <tbody>
-                    <tr th:each="category : ${categories}">
-                        <td class="text-center" th:text="${category.id}"></td>
-                        <td class="text-center" th:text="${category.description}"></td>
-                        <td class="text-center" th:text="${{category.registerDate}}"></td>
+                    <tr th:each="categoryName : ${categories}">
+                        <td class="text-center" th:text="${categoryName.id}"></td>
+                        <td class="text-center" th:text="${categoryName.description}"></td>
+                        <td class="text-center" th:text="${{categoryName.registerDate}}"></td>
                         <td>
-                            <a href="#" class="btn btn-link btn-xs js-category-edit"
-                               th:attr="data-id=${category.id}"
-                               title="Edit" rel="tooltip" data-placement="top" th:href="@{/categories/{id}(id=${category.id})}">
+                            <a href="#" class="btn btn-link btn-xs js-categoryName-edit"
+                               th:attr="data-id=${categoryName.id}"
+                               title="Edit" rel="tooltip" data-placement="top" th:href="@{/categories/{id}(id=${categoryName.id})}">
                                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                             </a>
 
                             <a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmRemoveCategory"
-                               th:attr="data-id=${category.id}, data-description=${category.description}" title="Remove"
+                               th:attr="data-id=${categoryName.id}, data-description=${categoryName.description}" title="Remove"
                                rel="tooltip" data-placement="top">
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </a>
