@@ -33,6 +33,15 @@
     font-weight: bold;
 }
 
+.ocf-tabs {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tab-content {
+    margin-top: 10px;
+}
+
 /* bootstrap hack: fix content width inside hidden tabs */
 .tab-content > .tab-pane,
 .pill-content > .pill-pane {

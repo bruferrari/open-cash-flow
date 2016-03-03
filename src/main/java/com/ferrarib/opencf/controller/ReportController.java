@@ -1,5 +1,6 @@
 package com.ferrarib.opencf.controller;
 
+import com.ferrarib.opencf.model.charts.CategoryIncomingWrapper;
 import com.ferrarib.opencf.model.charts.CategoryOutgoingWrapper;
 import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.model.charts.MonthlyBalanceWrapper;
@@ -34,12 +35,18 @@ public class ReportController {
 
     @RequestMapping(value = "monthlyBalance", method = RequestMethod.GET)
     public @ResponseBody MonthlyBalanceWrapper getMonthlyBalance() {
+//        return service.fakeMonthlyBalanceChart();
         return service.monthlyBalanceChart();
     }
 
     @RequestMapping(value = "categoryOutgoing", method = RequestMethod.GET)
     public @ResponseBody CategoryOutgoingWrapper getCategoryOutgoing() {
         return service.categoryOutgoingChart();
+    }
+
+    @RequestMapping(value = "categoryIncoming", method = RequestMethod.GET)
+    public @ResponseBody CategoryIncomingWrapper getCategoryIncoming() {
+        return service.categoryIncomingChart();
     }
 
 }

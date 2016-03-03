@@ -35,13 +35,13 @@ public class ChartService {
         List<Object[]> result = registries.findCategoryOutgoing();
         List<CategoryOutgoing> categoryOutgoings = new ArrayList<>();
 
-        for(Object[] o : result) {
+        result.forEach(o -> {
             CategoryOutgoing outgoing = new CategoryOutgoing();
             outgoing.setAmount(new BigDecimal(String.valueOf(o[0])));
             outgoing.setCategoryName(String.valueOf(o[1]));
 
             categoryOutgoings.add(outgoing);
-        }
+        });
 
         CategoryOutgoingWrapper wrapper = new CategoryOutgoingWrapper();
         wrapper.setCategoryOutgoings(categoryOutgoings);
@@ -50,21 +50,57 @@ public class ChartService {
     }
 
     public MonthlyBalanceWrapper monthlyBalanceChart() {
-        List<MonthlyBalance> result = new ArrayList<>();
-        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        List<Object[]> result = balances.findBalancePerMonth();
+        List<MonthlyBalance> balanceList = new ArrayList<>();
 
-        for(int i = 0; i < months.length; i++) {
-            MonthlyBalance bal = new MonthlyBalance();
-            bal.setMonth(months[i]);
-            bal.setBalance(Math.random() * 10000);
+        result.forEach(o -> {
+            MonthlyBalance bpm = new MonthlyBalance();
+            bpm.setBalance(new BigDecimal(o[0].toString()));
+            bpm.setMonth(Integer.parseInt(o[1].toString()));
 
-            result.add(bal);
-        }
+            balanceList.add(bpm);
+        });
+
         MonthlyBalanceWrapper wrapper = new MonthlyBalanceWrapper();
-        wrapper.setMonthlyBalances(result);
+        wrapper.setMonthlyBalances(balanceList);
 
         return wrapper;
     }
+
+    public CategoryIncomingWrapper categoryIncomingChart() {
+        List<Object[]> result = registries.findCategoryIncoming();
+        List<CategoryIncoming> incomings = new ArrayList<>();
+
+        result.forEach(o -> {
+            CategoryIncoming incoming = new CategoryIncoming();
+            incoming.setAmount(new BigDecimal(o[0].toString()));
+            incoming.setCategoryName(o[1].toString());
+
+            incomings.add(incoming);
+        });
+
+        CategoryIncomingWrapper wrapper = new CategoryIncomingWrapper();
+        wrapper.setCategoryIncomings(incomings);
+
+        return wrapper;
+    }
+
+//    public MonthlyBalanceWrapper fakeMonthlyBalanceChart() {
+//        List<MonthlyBalance> result = new ArrayList<>();
+//        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+//
+//        for(int i = 0; i < months.length; i++) {
+//            MonthlyBalance bal = new MonthlyBalance();
+//            bal.setMonth(months[i]);
+//            bal.setBalance(new BigDecimal(Math.random() * 10000));
+//
+//            result.add(bal);
+//        }
+//        MonthlyBalanceWrapper wrapper = new MonthlyBalanceWrapper();
+//        wrapper.setMonthlyBalances(result);
+//
+//        return wrapper;
+//    }
 
 
 }

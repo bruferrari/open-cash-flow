@@ -1,11 +1,9 @@
 package com.ferrarib.opencf.repository;
 
 import com.ferrarib.opencf.model.Registry;
-import com.ferrarib.opencf.model.charts.CategoryOutgoing;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,4 +44,11 @@ public interface Registries extends JpaRepository<Registry, Long> {
             "where month(date) = month(current_date) and r.status = 'DEBIT' " +
             "group by r.category.description")
     List<Object[]> findCategoryOutgoing();
+
+    @Modifying
+    @Transactional
+    @Query("select sum(r.amount), r.category.description from #{#entityName} r " +
+            "where month(date) = month(current_date) and r.status = 'CREDIT' " +
+            "group by r.category.description")
+    List<Object[]> findCategoryIncoming();
 }
