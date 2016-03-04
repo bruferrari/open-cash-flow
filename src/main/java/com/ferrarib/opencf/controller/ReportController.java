@@ -5,6 +5,7 @@ import com.ferrarib.opencf.model.charts.CategoryOutgoingWrapper;
 import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.model.charts.MonthlyBalanceWrapper;
 import com.ferrarib.opencf.service.ChartService;
+import com.ferrarib.opencf.service.DailyBalanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,15 @@ public class ReportController {
     @Autowired
     private ChartService service;
 
+    //REMOVE
+    @Autowired
+    private DailyBalanceService dbs;
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showReports() {
         ModelAndView mv = new ModelAndView("Reports");
+        mv.addObject("dailyBalancesList", service.dailyBalanceChart().getDailyBalances());
+
         return mv;
     }
 
@@ -35,7 +42,6 @@ public class ReportController {
 
     @RequestMapping(value = "monthlyBalance", method = RequestMethod.GET)
     public @ResponseBody MonthlyBalanceWrapper getMonthlyBalance() {
-//        return service.fakeMonthlyBalanceChart();
         return service.monthlyBalanceChart();
     }
 

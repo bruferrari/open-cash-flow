@@ -1,5 +1,7 @@
 package com.ferrarib.opencf.model.charts;
 
+import com.ferrarib.opencf.model.DailyBalance;
+
 import java.util.List;
 
 /**

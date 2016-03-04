@@ -1,5 +1,6 @@
 package com.ferrarib.opencf.service;
 
+import com.ferrarib.opencf.model.DailyBalance;
 import com.ferrarib.opencf.model.charts.*;
 import com.ferrarib.opencf.repository.DailyBalances;
 import com.ferrarib.opencf.repository.Registries;

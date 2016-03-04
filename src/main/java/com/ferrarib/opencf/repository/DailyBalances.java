@@ -1,6 +1,6 @@
 package com.ferrarib.opencf.repository;
 
-import com.ferrarib.opencf.model.charts.DailyBalance;
+import com.ferrarib.opencf.model.DailyBalance;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

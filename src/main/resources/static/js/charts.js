@@ -1,7 +1,8 @@
 /**
  * Created by bruno on 3/1/16.
  */
-google.load('visualization', '1', {'packages' : ['corechart']});
+google.load('visualization', '1', {'packages' : ['corechart', 'table']});
+
 google.setOnLoadCallback(drawDailyChart, true);
 google.setOnLoadCallback(drawMonthlyChart, true);
 google.setOnLoadCallback(drawCategoryOutgoingChart, true);
@@ -60,6 +61,35 @@ function drawDailyChart() {
 
             var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
             chart.draw(data, options);
+        }
+    });
+}
+
+function drawDailyTable() {
+    $.ajax({
+        url: '/reports/dailyBalance',
+        dataType: 'json',
+        success: function(jsonData) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'date');
+            data.addColumn('number', 'balance');
+
+            for(var i = 0; i < jsonData.dailyBalances.length; i++) {
+                var n = Number(jsonData.dailyBalances[i].balance);
+                data.addRow([new Date(jsonData.dailyBalances[i].date), n]);
+
+            }
+
+            var formatter = new google.visualization.NumberFormat({
+                negativeColor: 'red',
+                negativeParens: true,
+                pattern: 'R$ #,##0.00'
+            });
+
+            formatter.format(data, 1);
+
+            var table = new google.visualization.Table(document.getElementById('daily_table_div'));
+            table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
         }
     });
 }

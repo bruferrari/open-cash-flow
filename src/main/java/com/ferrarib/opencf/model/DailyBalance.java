@@ -1,4 +1,7 @@
-package com.ferrarib.opencf.model.charts;
+package com.ferrarib.opencf.model;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,9 +19,17 @@ public class DailyBalance implements Serializable {
 
     @Id
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date date;
 
+    @NumberFormat(pattern="#,##0.00")
     private BigDecimal balance;
+
+    @NumberFormat(pattern="#,##0.00")
+    private BigDecimal credit;
+
+    @NumberFormat(pattern="#,##0.00")
+    private BigDecimal debit;
 
     public BigDecimal getBalance() {
         return balance;
@@ -34,6 +45,22 @@ public class DailyBalance implements Serializable {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public BigDecimal getCredit() {
+        return credit;
+    }
+
+    public void setCredit(BigDecimal credit) {
+        this.credit = credit;
+    }
+
+    public BigDecimal getDebit() {
+        return debit;
+    }
+
+    public void setDebit(BigDecimal debit) {
+        this.debit = debit;
     }
 
     @Override

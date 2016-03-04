@@ -1,6 +1,6 @@
 package com.ferrarib;
 
-import com.ferrarib.opencf.model.charts.DailyBalance;
+import com.ferrarib.opencf.model.DailyBalance;
 import com.ferrarib.opencf.service.DailyBalanceService;
 import org.junit.Assert;
 import org.junit.Test;

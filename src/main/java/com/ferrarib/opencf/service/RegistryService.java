@@ -2,12 +2,10 @@ package com.ferrarib.opencf.service;
 
 import com.ferrarib.opencf.filter.RegistryFilter;
 import com.ferrarib.opencf.model.Registry;
-import com.ferrarib.opencf.model.charts.DailyBalance;
-import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.repository.Registries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.ArrayList;
+
 import java.util.Date;
 import java.util.List;
 
