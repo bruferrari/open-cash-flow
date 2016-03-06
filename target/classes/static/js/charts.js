@@ -1,12 +1,42 @@
 /**
  * Created by bruno on 3/1/16.
  */
+
+$(document).ready(function() {
+   $(document).ajaxStart(function() {
+       $('#wait_daily_balance_chart').css('display', 'block');
+       $('#wait_monthly_balance_chart').css('display', 'block');
+       $('#wait_category_outgoing_chart').css('display', 'block');
+       $('#wait_category_incoming_chart').css('display', 'block');
+   });
+
+    $(document).ajaxComplete(function() {
+        $('#wait_daily_balance_chart').ccs('display', 'none');
+        $('#wait_monthly_balance_chart').ccs('display', 'none');
+        $('#wait_category_outgoing_chart').ccs('display', 'none');
+        $('#wait_category_incoming_chart').ccs('display', 'none');
+    });
+
+    var tabCount = 0;
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var target = $(e.target).attr("href")
+        if(target == '#monthly' && tabCount == 0) {
+            renderMonthlyTab();
+            tabCount++;
+        }
+    });
+});
+
 google.load('visualization', '1', {'packages' : ['corechart', 'table']});
 
 google.setOnLoadCallback(drawDailyChart, true);
-google.setOnLoadCallback(drawMonthlyChart, true);
-google.setOnLoadCallback(drawCategoryOutgoingChart, true);
-google.setOnLoadCallback(drawCategoryIncomingChart, true);
+
+function renderMonthlyTab() {
+    google.setOnLoadCallback(drawMonthlyChart, true);
+    google.setOnLoadCallback(drawCategoryOutgoingChart, true);
+    google.setOnLoadCallback(drawCategoryIncomingChart, true);
+}
 
 $(window).resize(function() {
     drawDailyChart();
@@ -15,23 +45,23 @@ $(window).resize(function() {
     drawCategoryIncomingChart();
 });
 
-//$("a[href='#monthly']").on('shown.bs.tab', function(e) {
-//    drawMonthlyChart();
-//});
-
 function drawDailyChart() {
     $.ajax({
         url: '/reports/dailyBalance',
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();
-            data.addColumn('date', 'date');
-            data.addColumn('number', 'balance');
+            data.addColumn('date', 'Date');
+            data.addColumn('number', 'Balance');
+            data.addColumn('number', 'Incoming');
+            data.addColumn('number', 'Outgoing');
 
             for(var i = 0; i < jsonData.dailyBalances.length; i++) {
-                var n = Number(jsonData.dailyBalances[i].balance);
-                data.addRow([new Date(jsonData.dailyBalances[i].date), n]);
+                var b = Number(jsonData.dailyBalances[i].balance);
+                var c = Number(jsonData.dailyBalances[i].credit);
+                var d = Number(jsonData.dailyBalances[i].debit);
 
+                data.addRow([new Date(jsonData.dailyBalances[i].date), b, c, d]);
             }
 
             var formatter = new google.visualization.NumberFormat({
@@ -51,45 +81,15 @@ function drawDailyChart() {
                     startup: true,
                     duration: 1500,
                     easing: 'linear'
-                },
-                series: {
-                    0: {color: '#e2431e'}
                 }
             };
 
             formatter.format(data, 1);
+            formatter.format(data, 2);
+            formatter.format(data, 3);
 
-            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.LineChart(document.getElementById('daily_balance_chart_div'));
             chart.draw(data, options);
-        }
-    });
-}
-
-function drawDailyTable() {
-    $.ajax({
-        url: '/reports/dailyBalance',
-        dataType: 'json',
-        success: function(jsonData) {
-            var data = new google.visualization.DataTable();
-            data.addColumn('date', 'date');
-            data.addColumn('number', 'balance');
-
-            for(var i = 0; i < jsonData.dailyBalances.length; i++) {
-                var n = Number(jsonData.dailyBalances[i].balance);
-                data.addRow([new Date(jsonData.dailyBalances[i].date), n]);
-
-            }
-
-            var formatter = new google.visualization.NumberFormat({
-                negativeColor: 'red',
-                negativeParens: true,
-                pattern: 'R$ #,##0.00'
-            });
-
-            formatter.format(data, 1);
-
-            var table = new google.visualization.Table(document.getElementById('daily_table_div'));
-            table.draw(data, {showRowNumber: false, width: '100%', height: '100%'});
         }
     });
 }
@@ -100,8 +100,8 @@ function drawMonthlyChart() {
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();
-            data.addColumn('date', 'month');
-            data.addColumn('number', 'balance');
+            data.addColumn('date', 'Month');
+            data.addColumn('number', 'Balance');
 
             for(var i = 0; i < jsonData.monthlyBalances.length; i++) {
                 var n = Number(jsonData.monthlyBalances[i].balance);
@@ -123,15 +123,12 @@ function drawMonthlyChart() {
                     startup: true,
                     duration: 1500,
                     easing: 'linear'
-                },
-                series: {
-                    0: {color: '#e2431e'}
                 }
             };
 
             formatter.format(data, 1);
 
-            var chart = new google.visualization.LineChart(document.getElementById('monthly_chart_div'));
+            var chart = new google.visualization.AreaChart(document.getElementById('monthly_chart_div'));
             chart.draw(data, options);
         }
     });

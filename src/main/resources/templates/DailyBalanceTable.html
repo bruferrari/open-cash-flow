@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div class="table-responsive col-md-12">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th class="text-center">Date</th>
+            <th class="text-center">Balance</th>
+            <th class="text-center">Credit</th>
+            <th class="text-center">Debit</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="balance : ${dailyBalancesList}">
+            <td class="text-center" th:text="${{balance.date}}"></td>
+            <td class="text-center" th:classappend="${balance.negative} ? 'f-balance-negative'"
+                th:text="|R$ ${{balance.balance}}"></td>
+            <td class="text-center" th:text="|R$ ${{balance.credit}}"></td>
+            <td class="text-center" th:text="|R$ ${{balance.debit}}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

@@ -10,6 +10,32 @@
     }
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans';
+}
+p, div {
+    font-family: 'Open Sans';
+}
+
+.navbar {
+    height: 65px;
+}
+
+.navbar-nav li a {
+    line-height: 35px;
+}
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
+
+
 .bold {
     font-weight: bold;
 }
@@ -33,9 +59,9 @@
     font-weight: bold;
 }
 
-.ocf-tabs {
-    margin-left: 10px;
-    margin-right: 10px;
+.ocf-inline-label {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .tab-content {

@@ -1,6 +1,7 @@
 package com.ferrarib.opencf.service;
 
 import com.ferrarib.opencf.model.DailyBalance;
+import com.ferrarib.opencf.model.Registry;
 import com.ferrarib.opencf.model.charts.*;
 import com.ferrarib.opencf.repository.DailyBalances;
 import com.ferrarib.opencf.repository.Registries;
@@ -9,13 +10,14 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Created by bruno on 3/1/16.
  */
 @Service
-public class ChartService {
+public class ReportService {
 
     @Autowired
     private DailyBalances balances;
@@ -84,6 +86,10 @@ public class ChartService {
         wrapper.setCategoryIncomings(incomings);
 
         return wrapper;
+    }
+
+    public List<Registry> reportByDate(Date from, Date to) {
+        return registries.findByDateBetween(from, to);
     }
 
 //    public MonthlyBalanceWrapper fakeMonthlyBalanceChart() {

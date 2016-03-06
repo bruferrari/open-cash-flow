@@ -17,8 +17,6 @@ $(function() {
        console.log(response)
 
    });
-
-
 });
 
 $('#confirmRemoveCategory').on('show.bs.modal', function(event) {
@@ -38,3 +36,24 @@ $('#confirmRemoveCategory').on('show.bs.modal', function(event) {
    modal.find('.modal-body span').html('Do you want to remove title <strong>' + categoryDescription + '</strong>?');
 
 });
+
+$(function() {
+    $('.js-generate-report').on('click', function(event) {
+        event.preventDefault();
+        var from = $('#from').val();
+        var to = $('#to').val();
+        var formData = {from: from, to: to};
+        var table = $('#report_table');
+
+        $.ajax({
+            url: '/reports/',
+            type: 'POST',
+            data: formData,
+            success: function (data) {
+                console.log(data);
+                $('#resultsBlock').html(data);
+            }
+        });
+    });
+});
+

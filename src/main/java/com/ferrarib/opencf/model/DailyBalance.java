@@ -1,12 +1,10 @@
 package com.ferrarib.opencf.model;
 
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -80,5 +78,9 @@ public class DailyBalance implements Serializable {
         int result = date != null ? date.hashCode() : 0;
         result = 31 * result + (balance != null ? balance.hashCode() : 0);
         return result;
+    }
+
+    public boolean isNegative() {
+        return this.getBalance().compareTo(BigDecimal.ZERO) < 0 ? true : false;
     }
 }

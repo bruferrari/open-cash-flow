@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <form class="form-inline" method="post" th:action="@{/reports}" th:object="${report}">
+
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label for="from" class="ocf-inline-label">From</label>
+
+                        <div class="input-group">
+                            <input type="text" id="from" class="form-control" th:field="*{from}"
+                                   data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
+                                   data-date-today-highlight="true" data-date-orientation="bottom"/>
+                            <span class="input-group-addon glyphicon glyphicon-th" id="basic-addon1"></span>
+                        </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="to" class="ocf-inline-label">To</label>
+
+                        <div class="input-group">
+                            <input type="text" id="to" class="form-control" th:field="*{to}"
+                                   data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
+                                   data-date-today-highlight="true" data-date-orientation="bottom"/>
+                            <span class="input-group-addon glyphicon glyphicon-th" id="basic-addon2"></span>
+                        </div>
+                </div>
+
+                <div class="form-group pull-right">
+                    <button type="submit" class="btn btn-primary js-generate-report">
+                        Generate <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    </button>
+
+                    <button class="btn btn-primary">
+                        Download <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+                    </button>
+                </div>
+
+                <!--<div layout:include="ReportByDateTable"></div>-->
+
+                <div id="resultsBlock">
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+</html>
