@@ -38,26 +38,10 @@ public class ReportController {
         return mv;
     }
 
-//    @RequestMapping(method = RequestMethod.POST)
-//    public @ResponseBody List<Registry> generateReportByDate(ByDateReport bdr, RedirectAttributes attrb) {
-//        List<Registry> result = service.reportByDate(bdr.getFrom(), bdr.getTo());
-////        ModelAndView mv = new ModelAndView("redirect:/reports");
-//
-////        attrb.addFlashAttribute("registries", result);
-////        mv.addObject("registries", result);
-////        System.out.println(result);
-//
-//        return result;
-//    }
-
+    //Returns template processed by thymeleaf
     @RequestMapping(method = RequestMethod.POST)
     public String generateReportByDate(ByDateReport bdr, Model model) {
         model.addAttribute("registries", service.reportByDate(bdr.getFrom(), bdr.getTo()));
-//        ModelAndView mv = new ModelAndView("redirect:/reports");
-
-//        attrb.addFlashAttribute("registries", result);
-//        mv.addObject("registries", result);
-//        System.out.println(result);
 
         return "ReportByDateTable :: resultsList";
     }

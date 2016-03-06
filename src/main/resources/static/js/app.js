@@ -43,14 +43,12 @@ $(function() {
         var from = $('#from').val();
         var to = $('#to').val();
         var formData = {from: from, to: to};
-        var table = $('#report_table');
 
         $.ajax({
             url: '/reports/',
             type: 'POST',
             data: formData,
             success: function (data) {
-                console.log(data);
                 $('#resultsBlock').html(data);
             }
         });
