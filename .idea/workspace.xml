@@ -2,80 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="98314d4b-c090-49a9-9870-a63a044df8df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/report/by_date.jasper" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__bouncycastle_bcmail_jdk14_138.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__bouncycastle_bcprov_jdk14_138.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cglib_cglib_2_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_2_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lowagie_itext_2_1_7.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_regexp_jakarta_regexp_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jcommon_1_0_16.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jfreechart_1_0_13.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jasperreports_jasperreports_6_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_digester3_3_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_4_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_4_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_4_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_4_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_4_5_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_14.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcmail_jdk14_1_38.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk14_1_38.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bctsp_jdk14_1_38.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_core_1_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_xml_1_3_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_core_compiler_ecj_4_3_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_olap4j_olap4j_0_9_7_309_JS_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_1_2_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_3_02.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/ReportFormat.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/ReportRegistry.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/ConnectionFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/ReportGenerator.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/ReportGeneratorBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/templates/ExportTypeSelection.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/report/by_date.jrxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/ferrarib/ByDateReportTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/JsonChartParser.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/ByDateReport.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/ByDateReport.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/filter/ByDateReportFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/controller/ReportController.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/controller/ReportController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Balance.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/model/Balance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/util/JsonChartParser.class" afterPath="$PROJECT_DIR$/target/classes/com/ferrarib/opencf/util/JsonChartParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/ferrarib/DailyBalancesTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/ferrarib/DailyBalancesTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/ferrarib/RegistriesTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/ferrarib/RegistriesTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/opencf_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/opencf_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opencf.iml" afterPath="$PROJECT_DIR$/opencf.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ReportService.java" afterPath="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ReportService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/js/charts.js" afterPath="$PROJECT_DIR$/src/main/resources/static/js/charts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ListCategories.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ListCategories.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/templates/ReportByDateTable.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/ReportByDateTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/app.js" afterPath="$PROJECT_DIR$/target/classes/static/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/static/js/charts.js" afterPath="$PROJECT_DIR$/target/classes/static/js/charts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/ListCategories.html" afterPath="$PROJECT_DIR$/target/classes/templates/ListCategories.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/ReportByDate.html" afterPath="$PROJECT_DIR$/target/classes/templates/ReportByDate.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/templates/ReportByDateTable.html" afterPath="$PROJECT_DIR$/target/classes/templates/ReportByDateTable.html" />
     </list>
     <ignored path="opencf.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,6 +27,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ReportByDate.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="101" selection-start-line="5" selection-start-column="101" selection-end-line="5" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -121,29 +59,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ReportController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.21232876">
+              <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
               <folding>
-                <element signature="e#3104#3105#0" expanded="true" />
-                <element signature="e#3154#3155#0" expanded="true" />
-                <element signature="e#3298#3299#0" expanded="true" />
-                <element signature="e#3350#3351#0" expanded="true" />
-                <element signature="e#3500#3501#0" expanded="true" />
-                <element signature="e#3554#3555#0" expanded="true" />
-                <element signature="e#3704#3705#0" expanded="true" />
-                <element signature="e#3758#3759#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3101#3102#0" expanded="true" />
+                <element signature="e#3151#3152#0" expanded="true" />
+                <element signature="e#3295#3296#0" expanded="true" />
+                <element signature="e#3347#3348#0" expanded="true" />
+                <element signature="e#3497#3498#0" expanded="true" />
+                <element signature="e#3551#3552#0" expanded="true" />
+                <element signature="e#3701#3702#0" expanded="true" />
+                <element signature="e#3755#3756#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReportService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ReportService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40789473">
+            <state vertical-scroll-proportion="0.0">
               <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -227,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/GenerateReport.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/charts.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/ExportTypeSelection.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/app.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/ReportGeneratorBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/ReportRegistry.java" />
@@ -237,8 +175,9 @@
         <option value="$PROJECT_DIR$/src/report/by_date.jrxml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/util/ReportGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ReportService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java" />
       </list>
     </option>
   </component>
@@ -1443,7 +1382,7 @@
       <workItem from="1457199085247" duration="51753000" />
       <workItem from="1457392354827" duration="12567000" />
       <workItem from="1457463590983" duration="718000" />
-      <workItem from="1457464509679" duration="17676000" />
+      <workItem from="1457464509679" duration="18069000" />
     </task>
     <servers />
   </component>
@@ -1480,11 +1419,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="240281000" />
+    <option name="totallyTimeSpent" value="240674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1494,11 +1433,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776934" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2672956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2672956" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2584814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2584814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1844,14 +1783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
-          <caret line="33" column="49" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/model/Registry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69078946">
@@ -1920,14 +1851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="94" column="45" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.614726">
@@ -1954,31 +1877,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-          <folding>
-            <element signature="e#3104#3105#0" expanded="true" />
-            <element signature="e#3154#3155#0" expanded="true" />
-            <element signature="e#3298#3299#0" expanded="true" />
-            <element signature="e#3350#3351#0" expanded="true" />
-            <element signature="e#3500#3501#0" expanded="true" />
-            <element signature="e#3554#3555#0" expanded="true" />
-            <element signature="e#3704#3705#0" expanded="true" />
-            <element signature="e#3758#3759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/service/ReportService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40789473">
+        <state vertical-scroll-proportion="0.0">
           <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3058#3059#0" expanded="true" />
             <element signature="e#3119#3120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="94" column="45" selection-start-line="94" selection-start-column="45" selection-end-line="94" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/ReportByDate.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="101" selection-start-line="5" selection-start-column="101" selection-end-line="5" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ferrarib/opencf/controller/ReportController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21232876">
+          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3101#3102#0" expanded="true" />
+            <element signature="e#3151#3152#0" expanded="true" />
+            <element signature="e#3295#3296#0" expanded="true" />
+            <element signature="e#3347#3348#0" expanded="true" />
+            <element signature="e#3497#3498#0" expanded="true" />
+            <element signature="e#3551#3552#0" expanded="true" />
+            <element signature="e#3701#3702#0" expanded="true" />
+            <element signature="e#3755#3756#0" expanded="true" />
           </folding>
         </state>
       </provider>

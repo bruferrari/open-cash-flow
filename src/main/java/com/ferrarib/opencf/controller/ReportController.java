@@ -55,7 +55,7 @@ public class ReportController {
         return "ReportByDateTable :: resultsList";
     }
 
-    @RequestMapping(value = "/downloadByDate", method = RequestMethod.POST)
+    @RequestMapping(value = "exportByDate", method = RequestMethod.POST)
     public void downloadReportByDate(@Validated ByDateReportFilter bdr, HttpServletResponse response) {
         Map<String, Object> params = service.prepareReportParams(bdr);
         try {
