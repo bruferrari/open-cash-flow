@@ -39,12 +39,25 @@ $('#confirmRemoveCategory').on('show.bs.modal', function(event) {
 
 });
 
+var changed = false;
+$(function() {
+    $('input').on('change', function() { // listen to changes on inputs
+        changed = true;
+        $('.js-export-report').prop('disabled', true); // disabling export button
+        console.log(changed);
+    });
+});
+
 $(function() {
     $('.js-generate-report').on('click', function(event) {
+        changed = false;
         event.preventDefault();
 
         if(validateForm()) {
            getReportData();
+            if(!changed) {
+                $('.js-export-report').prop('disabled', false); // enabling export button
+            }
         }
     });
 });
@@ -101,5 +114,3 @@ $(function() {
         });
     });
 });
-
-
