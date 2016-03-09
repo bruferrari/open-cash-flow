@@ -11,31 +11,35 @@ $(document).ready(function() {
    });
 
     $(document).ajaxComplete(function() {
-        $('#wait_daily_balance_chart').ccs('display', 'none');
-        $('#wait_monthly_balance_chart').ccs('display', 'none');
-        $('#wait_category_outgoing_chart').ccs('display', 'none');
-        $('#wait_category_incoming_chart').ccs('display', 'none');
+        $('#wait_daily_balance_chart').css('display', 'none');
+        $('#wait_monthly_balance_chart').css('display', 'none');
+        $('#wait_category_outgoing_chart').css('display', 'none');
+        $('#wait_category_incoming_chart').css('display', 'none');
     });
 
-    var tabCount = 0;
+    var monthlyTabCount = 0;
 
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $('a[data-toggle="tab"]').on('click', function (e) {
         var target = $(e.target).attr("href")
-        if(target == '#monthly' && tabCount == 0) {
+        if(target == '#monthly' && monthlyTabCount == 0) {
             renderMonthlyTab();
-            tabCount++;
+            monthlyTabCount++;
         }
     });
 });
 
 google.load('visualization', '1', {'packages' : ['corechart', 'table']});
 
-google.setOnLoadCallback(drawDailyChart, true);
+renderDailyTab();
 
 function renderMonthlyTab() {
     google.setOnLoadCallback(drawMonthlyChart, true);
     google.setOnLoadCallback(drawCategoryOutgoingChart, true);
     google.setOnLoadCallback(drawCategoryIncomingChart, true);
+}
+
+function renderDailyTab() {
+    google.setOnLoadCallback(drawDailyChart, true);
 }
 
 $(window).resize(function() {

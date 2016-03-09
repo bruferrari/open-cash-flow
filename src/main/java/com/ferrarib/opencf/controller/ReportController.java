@@ -1,23 +1,29 @@
 package com.ferrarib.opencf.controller;
 
-import com.ferrarib.opencf.model.ByDateReport;
+import com.ferrarib.opencf.filter.ByDateReportFilter;
+import com.ferrarib.opencf.model.Balance;
 import com.ferrarib.opencf.model.Registry;
+import com.ferrarib.opencf.model.ReportFormat;
 import com.ferrarib.opencf.model.charts.CategoryIncomingWrapper;
 import com.ferrarib.opencf.model.charts.CategoryOutgoingWrapper;
 import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.model.charts.MonthlyBalanceWrapper;
 import com.ferrarib.opencf.service.ReportService;
+import com.ferrarib.opencf.util.ConnectionFactory;
+import com.ferrarib.opencf.util.ReportGenerator;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.Date;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by bruno on 2/29/16.
@@ -33,19 +39,36 @@ public class ReportController {
     public ModelAndView showReports() {
         ModelAndView mv = new ModelAndView("Reports");
         mv.addObject("dailyBalancesList", service.dailyBalanceChart().getDailyBalances());
-        mv.addObject("report", new ByDateReport());
+        mv.addObject("report", new ByDateReportFilter());
+        mv.addObject("formats", ReportFormat.values());
 
         return mv;
     }
 
-    //Returns template processed by thymeleaf
     @RequestMapping(method = RequestMethod.POST)
-    public String generateReportByDate(ByDateReport bdr, Model model) {
-        model.addAttribute("registries", service.reportByDate(bdr.getFrom(), bdr.getTo()));
+    public String generateReportByDate(@Validated ByDateReportFilter bdr, Model model) {
+        List<Registry> registries = service.reportByDate(bdr.getFrom(), bdr.getTo());
+        model.addAttribute("registries", registries);
+        model.addAttribute("balance", new Balance(registries));
 
+        //Returns template processed by thymeleaf
         return "ReportByDateTable :: resultsList";
     }
 
+    @RequestMapping(value = "/downloadByDate", method = RequestMethod.POST)
+    public void downloadReportByDate(@Validated ByDateReportFilter bdr, HttpServletResponse response) {
+        Map<String, Object> params = service.prepareReportParams(bdr);
+        try {
+            ReportGenerator generator = new ReportGenerator(new ConnectionFactory().getConnection(),
+                    service.REPORT_COMPILED_MODEL_PATH, params, bdr.getFormat());
+            service.contentNegotiation(response, bdr.getFormat());
+            generator.createReport(response.getOutputStream());
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @RequestMapping(value = "dailyBalance", method = RequestMethod.GET)
     public @ResponseBody DailyBalanceWrapper getDailyBalance() {

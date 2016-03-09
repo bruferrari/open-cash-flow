@@ -13,7 +13,7 @@ $(function() {
 
        $('#newCategoryDialog').modal('show');
 
-       var categoryId = $(this).data('id')
+       var categoryId = $(this).data('id');
        console.log(response)
 
    });
@@ -40,20 +40,64 @@ $('#confirmRemoveCategory').on('show.bs.modal', function(event) {
 $(function() {
     $('.js-generate-report').on('click', function(event) {
         event.preventDefault();
-        var from = $('#from').val();
-        var to = $('#to').val();
-        var formData = {from: from, to: to};
-        var table = $('#report_table');
 
-        $.ajax({
-            url: '/reports/',
-            type: 'POST',
-            data: formData,
-            success: function (data) {
-                console.log(data);
-                $('#resultsBlock').html(data);
-            }
+        if(validateForm()) {
+           getReportData();
+        }
+    });
+});
+
+function getReportData() {
+    var from = $('#from').val();
+    var to = $('#to').val();
+    var formData = {from: from, to: to};
+
+    $.ajax({
+        url: $('.js-generate-report').attr('href'),
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            $('#reportDataTable').html(data);
+        },
+        error: function(xhr) {
+            console.log(xhr.status);
+        }
+    });
+}
+
+function validateForm() {
+    var isFormValid = true;
+
+    $('.required').each(function() {
+        var parent = '#' + $(this).closest('div').attr('id');
+        if($.trim($(this).val()).length == 0) {
+            $(parent).addClass('has-error');
+            isFormValid = false;
+        } else {
+            $(parent).removeClass('has-error');
+        }
+    });
+
+    return isFormValid;
+}
+
+$(function() {
+    $('.js-export-report').on('click', function(event) {
+        if(!validateForm())
+            event.stopPropagation();
+
+        $('.js-export-btn').on('click', function(event) {
+            event.preventDefault();
+
+            var formatSelected = $('#export-format-selector option:selected').val();
+            console.log(formatSelected);
+
+            $('#format').val(formatSelected);
+
+            $('#exportTypeSelection').modal('hide');
+            $('#report-form').submit();
         });
     });
 });
+
 

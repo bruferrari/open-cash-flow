@@ -1,17 +1,18 @@
 package com.ferrarib.opencf.service;
 
+import com.ferrarib.opencf.filter.ByDateReportFilter;
 import com.ferrarib.opencf.model.DailyBalance;
 import com.ferrarib.opencf.model.Registry;
+import com.ferrarib.opencf.model.ReportFormat;
 import com.ferrarib.opencf.model.charts.*;
 import com.ferrarib.opencf.repository.DailyBalances;
 import com.ferrarib.opencf.repository.Registries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by bruno on 3/1/16.
@@ -24,6 +25,8 @@ public class ReportService {
 
     @Autowired
     private Registries registries;
+
+    public final static String REPORT_COMPILED_MODEL_PATH = "src/report/by_date.jasper";
 
     public DailyBalanceWrapper dailyBalanceChart() {
         List<DailyBalance> result = balances.findTop15ByOrderByDateDesc();
@@ -92,22 +95,25 @@ public class ReportService {
         return registries.findByDateBetween(from, to);
     }
 
-//    public MonthlyBalanceWrapper fakeMonthlyBalanceChart() {
-//        List<MonthlyBalance> result = new ArrayList<>();
-//        String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-//
-//        for(int i = 0; i < months.length; i++) {
-//            MonthlyBalance bal = new MonthlyBalance();
-//            bal.setMonth(months[i]);
-//            bal.setBalance(new BigDecimal(Math.random() * 10000));
-//
-//            result.add(bal);
-//        }
-//        MonthlyBalanceWrapper wrapper = new MonthlyBalanceWrapper();
-//        wrapper.setMonthlyBalances(result);
-//
-//        return wrapper;
-//    }
+    public HttpServletResponse contentNegotiation(HttpServletResponse response, ReportFormat format) {
+        if(format.equals(ReportFormat.PDF)) {
+            response.setContentType("application/x-pdf");
+            response.setHeader("Content-disposition", "inline; filename=ocf_report" + new Date().getTime() + ".pdf");
+        } else if(format.equals(ReportFormat.XLS)){
+            response.setContentType("application/vnd.ms-excel");
+            response.setHeader("Content-disposition", "attachment; filename=ocf_report" + new Date().getTime() + ".xls");
+        }
 
+        return response;
+    }
+
+    public Map<String, Object> prepareReportParams(ByDateReportFilter bdr) {
+        Map<String, Object> params = new HashMap<>();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        params.put("from", sdf.format(bdr.getFrom()));
+        params.put("to", sdf.format(bdr.getTo()));
+
+        return params;
+    }
 
 }

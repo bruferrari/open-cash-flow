@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-    <form class="form-inline" method="post" th:action="@{/reports}" th:object="${report}">
+    <form id="report-form" class="form-inline report-form" method="post" th:action="@{/reports/downloadByDate}" th:object="${report}">
 
         <div class="panel panel-default">
 
@@ -12,8 +12,8 @@
                 <div class="form-group">
                     <label for="from" class="ocf-inline-label">From</label>
 
-                        <div class="input-group">
-                            <input type="text" id="from" class="form-control" th:field="*{from}"
+                        <div id="from-group" class="input-group">
+                            <input type="text" id="from" class="form-control required" th:field="*{from}"
                                    data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
                                    data-date-today-highlight="true" data-date-orientation="bottom"/>
                             <span class="input-group-addon glyphicon glyphicon-th" id="basic-addon1"></span>
@@ -23,32 +23,34 @@
                 <div class="form-group">
                     <label for="to" class="ocf-inline-label">To</label>
 
-                        <div class="input-group">
-                            <input type="text" id="to" class="form-control" th:field="*{to}"
+                        <div id="to-group" class="input-group">
+                            <input type="text" id="to" class="form-control required" th:field="*{to}"
                                    data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
                                    data-date-today-highlight="true" data-date-orientation="bottom"/>
                             <span class="input-group-addon glyphicon glyphicon-th" id="basic-addon2"></span>
                         </div>
                 </div>
 
+                <input type="hidden" id="format" th:field="*{format}" />
+
                 <div class="form-group pull-right">
-                    <button type="submit" class="btn btn-primary js-generate-report">
+                    <button class="btn btn-primary js-generate-report" th:href="@{/reports}">
                         Generate <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                     </button>
 
-                    <button class="btn btn-primary">
-                        Download <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span>
+                    <button type="button" class="btn btn-primary js-export-report" data-toggle="modal"
+                            data-target="#exportTypeSelection">
+                        Export <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
                     </button>
                 </div>
 
-                <!--<div layout:include="ReportByDateTable"></div>-->
 
-                <div id="resultsBlock">
-
-                </div>
+                <div id="reportDataTable"></div>
             </div>
 
         </div>
     </form>
+
+    <div layout:include="ExportTypeSelection"></div>
 
 </html>
