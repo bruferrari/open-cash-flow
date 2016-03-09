@@ -18,22 +18,26 @@ p, div {
 }
 
 .navbar {
-    height: 65px;
+    min-height: 65px;
 }
 
 .navbar-nav li a {
     line-height: 35px;
 }
 
-.navbar-brand
-{
+.navbar-brand-centered {
     position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
+    left: 50%;
+    display: block;
+    width: 160px;
     text-align: center;
-    margin: auto;
+    background-color: transparent;
 }
+.navbar>.container .navbar-brand-centered,
+.navbar>.container-fluid .navbar-brand-centered {
+    margin-left: -80px;
+}
+
 
 
 .bold {
