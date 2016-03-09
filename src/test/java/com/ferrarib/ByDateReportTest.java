@@ -3,7 +3,7 @@ package com.ferrarib;
 import com.ferrarib.opencf.model.Registry;
 import com.ferrarib.opencf.model.ReportRegistry;
 import com.ferrarib.opencf.repository.Registries;
-import com.ferrarib.opencf.util.ReportGeneratorBean;
+import com.ferrarib.opencf.util.ReportGenerator;
 import net.sf.jasperreports.engine.JRException;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -37,7 +37,7 @@ public class ByDateReportTest {
         Map<String, Object> params = new HashMap<>();
 
         List<ReportRegistry> reportRegistries = parseModel();
-        ReportGeneratorBean gr = new ReportGeneratorBean(reportRegistries, "src/report/by_date.jasper", params);
+        ReportGenerator gr = new ReportGenerator(reportRegistries, "src/report/by_date.jasper", params, null);
         gr.createReport(new FileOutputStream("src/report/byDateReport.pdf"));
 
     }

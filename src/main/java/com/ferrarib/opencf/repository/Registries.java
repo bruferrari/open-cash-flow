@@ -41,14 +41,14 @@ public interface Registries extends JpaRepository<Registry, Long> {
     @Modifying
     @Transactional
     @Query("select sum(r.amount), r.category.description from #{#entityName} r " +
-            "where month(date) = month(current_date) and r.status = 'DEBIT' " +
+            "where month(date) = month(current_date) and r.status = 'OUTGOING' " +
             "group by r.category.description")
     List<Object[]> findCategoryOutgoing();
 
     @Modifying
     @Transactional
     @Query("select sum(r.amount), r.category.description from #{#entityName} r " +
-            "where month(date) = month(current_date) and r.status = 'CREDIT' " +
+            "where month(date) = month(current_date) and r.status = 'INCOMING' " +
             "group by r.category.description")
     List<Object[]> findCategoryIncoming();
 }

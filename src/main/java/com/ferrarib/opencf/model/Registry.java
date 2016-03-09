@@ -85,7 +85,7 @@ public class Registry {
     }
 
     public boolean isCredit() {
-        return this.getStatus().equals(RegistryStatus.CREDIT);
+        return this.getStatus().equals(RegistryStatus.INCOMING);
     }
 
     @Override

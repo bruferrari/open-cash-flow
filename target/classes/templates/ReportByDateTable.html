@@ -48,8 +48,8 @@
 
             <tbody>
             <tr>
-                <td class="text-center" th:text="|R$ ${{balance.credit}}"></td>
-                <td class="text-center" th:text="|R$ ${{balance.debit}}"></td>
+                <td class="text-center" th:text="|R$ ${{balance.incoming}}"></td>
+                <td class="text-center" th:text="|R$ ${{balance.outgoing}}"></td>
                 <td class="text-center f-balance-positive" th:text="|R$ ${{balance.balance}}"
                     th:classappend="${balance.negative} ? 'f-balance-negative'"></td>
             </tr>

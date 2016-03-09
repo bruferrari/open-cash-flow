@@ -17,26 +17,26 @@ public class Balance {
     }
 
     @NumberFormat(pattern="#,##0.00")
-    private BigDecimal credit;
+    private BigDecimal incoming;
 
     @NumberFormat(pattern="#,##0.00")
-    private BigDecimal debit;
+    private BigDecimal outgoing;
 
     @NumberFormat(pattern="#,##0.00")
     private BigDecimal balance;
 
-    public BigDecimal getCredit() {
-        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.CREDIT))
+    public BigDecimal getIncoming() {
+        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.INCOMING))
                 .map(Registry::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public BigDecimal getDebit() {
-        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.DEBIT))
+    public BigDecimal getOutgoing() {
+        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.OUTGOING))
                 .map(Registry::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal getBalance() {
-        return this.getCredit().subtract(this.getDebit());
+        return this.getIncoming().subtract(this.getOutgoing());
     }
 
     public boolean isNegative() {

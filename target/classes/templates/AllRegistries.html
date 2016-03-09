@@ -75,16 +75,16 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th class="text-center">Credit</th>
-                            <th class="text-center">Debit</th>
+                            <th class="text-center">Incoming</th>
+                            <th class="text-center">Outgoing</th>
                             <th class="text-center">Balance</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            <td class="text-center" th:text="|R$ ${{balance.credit}}"></td>
-                            <td class="text-center" th:text="|R$ ${{balance.debit}}"></td>
+                            <td class="text-center" th:text="|R$ ${{balance.incoming}}"></td>
+                            <td class="text-center" th:text="|R$ ${{balance.outgoing}}"></td>
                             <td class="text-center f-balance-positive" th:text="|R$ ${{balance.balance}}"
                                 th:classappend="${balance.negative} ? 'f-balance-negative'"></td>
                         </tr>

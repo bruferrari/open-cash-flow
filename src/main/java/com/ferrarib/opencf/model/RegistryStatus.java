@@ -4,8 +4,8 @@ package com.ferrarib.opencf.model;
  * Created by bruno on 2/10/16.
  */
 public enum RegistryStatus {
-    CREDIT("Credit"),
-    DEBIT("Debit");
+    INCOMING("Incoming"),
+    OUTGOING("Outgoing");
 
     private String description;
 

@@ -38,8 +38,8 @@ public class DailyBalanceService {
 
         dailyBalance.setDate(Calendar.getInstance().getTime());
         dailyBalance.setBalance(balance.getBalance());
-        dailyBalance.setCredit(balance.getCredit());
-        dailyBalance.setDebit(balance.getDebit());
+        dailyBalance.setCredit(balance.getIncoming());
+        dailyBalance.setDebit(balance.getOutgoing());
 
         return dailyBalance;
     }
