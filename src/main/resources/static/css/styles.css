@@ -19,6 +19,7 @@ p, div {
 
 .navbar {
     min-height: 65px;
+    background-color: #4A148C;
 }
 
 .navbar-nav li a {

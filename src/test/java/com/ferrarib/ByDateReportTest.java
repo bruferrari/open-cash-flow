@@ -3,7 +3,6 @@ package com.ferrarib;
 import com.ferrarib.opencf.model.Registry;
 import com.ferrarib.opencf.model.ReportRegistry;
 import com.ferrarib.opencf.repository.Registries;
-import com.ferrarib.opencf.util.ConnectionFactory;
 import com.ferrarib.opencf.util.ReportGeneratorBean;
 import net.sf.jasperreports.engine.JRException;
 import org.junit.Ignore;
@@ -16,7 +15,6 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,19 +34,11 @@ public class ByDateReportTest {
     @Test
     public void mustGenerateReport() throws SQLException, JRException, FileNotFoundException, ParseException {
 
-//        Connection conn = new ConnectionFactory().getConnection();
-
         Map<String, Object> params = new HashMap<>();
-//        params.put("from", "2016-03-01");
-//        params.put("to", "2016-03-07");
-
-//        ReportGenerator gr = new ReportGenerator(conn, "src/report/by_date.jasper", params);
 
         List<ReportRegistry> reportRegistries = parseModel();
         ReportGeneratorBean gr = new ReportGeneratorBean(reportRegistries, "src/report/by_date.jasper", params);
         gr.createReport(new FileOutputStream("src/report/byDateReport.pdf"));
-
-//        conn.close();
 
     }
 

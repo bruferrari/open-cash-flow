@@ -4,6 +4,7 @@ import com.ferrarib.opencf.filter.ByDateReportFilter;
 import com.ferrarib.opencf.model.DailyBalance;
 import com.ferrarib.opencf.model.Registry;
 import com.ferrarib.opencf.model.ReportFormat;
+import com.ferrarib.opencf.model.ReportRegistry;
 import com.ferrarib.opencf.model.charts.*;
 import com.ferrarib.opencf.repository.DailyBalances;
 import com.ferrarib.opencf.repository.Registries;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -115,5 +117,16 @@ public class ReportService {
 
         return params;
     }
+
+    public List<ReportRegistry> parseModel(List<Registry> registries) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        List<Registry> registriesList = registries.findByDateBetween(sdf.parse("01/03/2016"), sdf.parse("02/03/2016"));
+        List<ReportRegistry> reportRegistries = new ArrayList<>();
+
+        registries.forEach(registry -> reportRegistries.add(new ReportRegistry(registry)));
+
+        return reportRegistries;
+    }
+
 
 }

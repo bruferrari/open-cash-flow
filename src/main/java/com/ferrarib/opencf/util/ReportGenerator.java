@@ -1,7 +1,9 @@
 package com.ferrarib.opencf.util;
 
 import com.ferrarib.opencf.model.ReportFormat;
+import com.ferrarib.opencf.model.ReportRegistry;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
@@ -10,6 +12,7 @@ import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.sql.Connection;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,13 +21,13 @@ import java.util.Map;
  */
 public class ReportGenerator {
 
-    private Connection conn;
+    private List<ReportRegistry> reportRegistries;
     private String fileName;
     private Map<String, Object> params;
     private ReportFormat format;
 
-    public ReportGenerator(Connection conn, String fileName, Map<String, Object> params, ReportFormat format) {
-        this.conn = conn;
+    public ReportGenerator(List<ReportRegistry> reportRegistries, String fileName, Map<String, Object> params, ReportFormat format) {
+        this.reportRegistries = reportRegistries;
         this.fileName = fileName;
         this.params = params;
         this.format = format;
@@ -33,7 +36,9 @@ public class ReportGenerator {
     public void createReport(OutputStream output) throws JRException, FileNotFoundException {
 //        JasperCompileManager.compileReportToFile("/src/report/by_date.jrxml");
 
-        JasperPrint jasperPrint = JasperFillManager.fillReport(fileName, params, conn);
+        JRDataSource dataSource = new JRBeanCollectionDataSource(reportRegistries, false);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(fileName, params, dataSource);
 
         if(format.equals(ReportFormat.PDF)) {
             JRPdfExporter pdfExporter = new JRPdfExporter();

@@ -7,7 +7,6 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
-import java.sql.Connection;
 import java.util.List;
 import java.util.Map;
 
@@ -27,9 +26,9 @@ public class ReportGeneratorBean {
     }
 
     public void createReport(OutputStream output) throws JRException, FileNotFoundException {
-        JasperCompileManager.compileReportToFile("src/report/by_date.jrxml");
+        JasperCompileManager.compileReportToFile("src/report/test_report.jrxml");
 
-        JRDataSource dataSource = new JRBeanCollectionDataSource(reportRegistries);
+        JRDataSource dataSource = new JRBeanCollectionDataSource(reportRegistries, false);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(fileName, params, dataSource);
 

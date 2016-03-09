@@ -4,12 +4,12 @@ import com.ferrarib.opencf.filter.ByDateReportFilter;
 import com.ferrarib.opencf.model.Balance;
 import com.ferrarib.opencf.model.Registry;
 import com.ferrarib.opencf.model.ReportFormat;
+import com.ferrarib.opencf.model.ReportRegistry;
 import com.ferrarib.opencf.model.charts.CategoryIncomingWrapper;
 import com.ferrarib.opencf.model.charts.CategoryOutgoingWrapper;
 import com.ferrarib.opencf.model.charts.DailyBalanceWrapper;
 import com.ferrarib.opencf.model.charts.MonthlyBalanceWrapper;
 import com.ferrarib.opencf.service.ReportService;
-import com.ferrarib.opencf.util.ConnectionFactory;
 import com.ferrarib.opencf.util.ReportGenerator;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,6 +37,8 @@ public class ReportController {
     @Autowired
     private ReportService service;
 
+    private List<Registry> registries;
+
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView showReports() {
         ModelAndView mv = new ModelAndView("Reports");
@@ -47,7 +51,7 @@ public class ReportController {
 
     @RequestMapping(method = RequestMethod.POST)
     public String generateReportByDate(@Validated ByDateReportFilter bdr, Model model) {
-        List<Registry> registries = service.reportByDate(bdr.getFrom(), bdr.getTo());
+        registries = service.reportByDate(bdr.getFrom(), bdr.getTo());
         model.addAttribute("registries", registries);
         model.addAttribute("balance", new Balance(registries));
 
@@ -57,15 +61,16 @@ public class ReportController {
 
     @RequestMapping(value = "exportByDate", method = RequestMethod.POST)
     public void downloadReportByDate(@Validated ByDateReportFilter bdr, HttpServletResponse response) {
-        Map<String, Object> params = service.prepareReportParams(bdr);
+        Map<String, Object> params = new HashMap<>();
+
         try {
-            ReportGenerator generator = new ReportGenerator(new ConnectionFactory().getConnection(),
+            List<ReportRegistry> reportRegistries = service.parseModel(registries);
+            ReportGenerator generator = new ReportGenerator(reportRegistries,
                     service.REPORT_COMPILED_MODEL_PATH, params, bdr.getFormat());
             service.contentNegotiation(response, bdr.getFormat());
             generator.createReport(response.getOutputStream());
-        } catch (JRException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+
+        } catch (JRException | IOException | ParseException e) {
             e.printStackTrace();
         }
     }
