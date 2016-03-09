@@ -119,10 +119,7 @@ public class ReportService {
     }
 
     public List<ReportRegistry> parseModel(List<Registry> registries) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//        List<Registry> registriesList = registries.findByDateBetween(sdf.parse("01/03/2016"), sdf.parse("02/03/2016"));
         List<ReportRegistry> reportRegistries = new ArrayList<>();
-
         registries.forEach(registry -> reportRegistries.add(new ReportRegistry(registry)));
 
         return reportRegistries;
