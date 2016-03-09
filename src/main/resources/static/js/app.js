@@ -1,3 +1,5 @@
+$('#new-register-date').datepicker('setDate', new Date());
+
 $(function() {
    $('.js-currency').maskMoney({decimal: ',', thousands: '.', allowZero: true});
 
