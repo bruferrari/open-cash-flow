@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,9 +46,14 @@ public class ReportController {
         ModelAndView mv = new ModelAndView("Reports");
         mv.addObject("dailyBalancesList", service.dailyBalanceChart().getDailyBalances());
         mv.addObject("report", new ByDateReportFilter());
-        mv.addObject("formats", ReportFormat.values());
+//        mv.addObject("formats", ReportFormat.values());
 
         return mv;
+    }
+
+    @ModelAttribute("formats")
+    public List<ReportFormat> reportFormats() {
+        return Arrays.asList(ReportFormat.values());
     }
 
     @RequestMapping(method = RequestMethod.POST)

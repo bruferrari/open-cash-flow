@@ -73,8 +73,8 @@ public class RegistryController {
         }
     }
 
-    @ModelAttribute("statuses")
-    public List<RegistryType> registryStatuses() {
+    @ModelAttribute("types")
+    public List<RegistryType> registryTypes() {
         return Arrays.asList(RegistryType.values());
     }
 

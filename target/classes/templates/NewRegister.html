@@ -63,8 +63,8 @@
                     <div class="form-group">
                         <label for="source" class="col-sm-2 control-label">Source</label>
                         <div class="col-sm-4">
-                            <select class="form-control" id="source" th:field="*{status}">
-                                <option th:each="status : ${statuses}" th:value="${status}" th:text="${status.description}"></option>
+                            <select class="form-control" id="source" th:field="*{type}">
+                                <option th:each="types : ${types}" th:value="${types}" th:text="${types.description}"></option>
                             </select>
                         </div>
                     </div>
