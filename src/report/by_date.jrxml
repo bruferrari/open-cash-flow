@@ -10,7 +10,7 @@
 		<defaultValueExpression><![CDATA[2016-03-02]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[select r.id, r.title, r.amount, r.date, r.status, c.description as category from registry r inner join category c on r.category_id = c.id
+		<![CDATA[select r.id, r.title, r.amount, r.date, r.type, c.description as category from registry r inner join category c on r.category_id = c.id
 where r.date between $P{from} and $P{to} order by date]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
@@ -25,7 +25,7 @@ where r.date between $P{from} and $P{to} order by date]]>
 	<field name="date" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="status" class="java.lang.String">
+	<field name="type" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="category" class="java.lang.String"/>
@@ -72,35 +72,35 @@ where r.date between $P{from} and $P{to} order by date]]>
 				<text><![CDATA[#]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="433" y="0" width="72" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cf601f08-7876-4d61-a5cf-dc9c71521188"/>
+				<reportElement mode="Opaque" x="413" y="0" width="72" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cf601f08-7876-4d61-a5cf-dc9c71521188"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Amount]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="505" y="0" width="50" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="6f064c0a-96a0-4889-949e-469438204ce1"/>
+				<reportElement mode="Opaque" x="485" y="0" width="70" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="6f064c0a-96a0-4889-949e-469438204ce1"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Status]]></text>
+				<text><![CDATA[Type]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="25" y="0" width="237" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cdc716ba-dbff-4462-a105-46f2b0a0249c"/>
+				<reportElement mode="Opaque" x="25" y="0" width="217" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cdc716ba-dbff-4462-a105-46f2b0a0249c"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Title]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="342" y="0" width="91" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="72d3676e-8cda-40e1-90ac-730d1138e697"/>
+				<reportElement mode="Opaque" x="322" y="0" width="91" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="72d3676e-8cda-40e1-90ac-730d1138e697"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Category]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="262" y="0" width="80" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="1e18857c-bd69-44f2-b482-73e1ca321ccb"/>
+				<reportElement mode="Opaque" x="242" y="0" width="80" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="1e18857c-bd69-44f2-b482-73e1ca321ccb"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -118,39 +118,37 @@ where r.date between $P{from} and $P{to} order by date]]>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" pattern="R$ #,##0.00">
-				<reportElement x="433" y="0" width="72" height="20" uuid="7b95ec45-9209-4f3f-9586-fea47b267507"/>
+				<reportElement x="413" y="1" width="72" height="20" uuid="7b95ec45-9209-4f3f-9586-fea47b267507"/>
 				<textElement textAlignment="Center">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="342" y="0" width="91" height="20" uuid="28052d58-b086-4425-b6e9-d7167bae0d1f"/>
+				<reportElement x="322" y="1" width="91" height="20" uuid="28052d58-b086-4425-b6e9-d7167bae0d1f"/>
 				<textElement textAlignment="Center">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="25" y="0" width="237" height="20" uuid="ec59613e-18ba-49b6-9465-28cc83937b96"/>
+				<reportElement x="25" y="1" width="217" height="20" uuid="ec59613e-18ba-49b6-9465-28cc83937b96"/>
 				<textElement textAlignment="Justified">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
 			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement x="505" y="0" width="50" height="20" uuid="260a1bf0-f7f5-49c0-a2fa-13ef60039ed1"/>
-				<textElement textAlignment="Center">
-					<font size="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
-			</textField>
 			<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
-				<reportElement x="262" y="0" width="80" height="20" uuid="135ccc3d-4431-4b78-af77-f974b4794f20"/>
+				<reportElement x="242" y="1" width="80" height="20" uuid="135ccc3d-4431-4b78-af77-f974b4794f20"/>
 				<textElement textAlignment="Center">
 					<font size="10"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="485" y="1" width="70" height="20" uuid="dbd592ad-a0ca-404f-b31a-74cad63da1ee"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

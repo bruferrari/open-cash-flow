@@ -34,7 +34,7 @@ public class Registry {
     private BigDecimal amount;
 
     @Enumerated(EnumType.STRING)
-    private RegistryStatus status;
+    private RegistryType type;
 
     public Long getId() {
         return id;
@@ -76,16 +76,16 @@ public class Registry {
         this.amount = amount;
     }
 
-    public RegistryStatus getStatus() {
-        return status;
+    public RegistryType getType() {
+        return type;
     }
 
-    public void setStatus(RegistryStatus status) {
-        this.status = status;
+    public void setType(RegistryType type) {
+        this.type = type;
     }
 
-    public boolean isCredit() {
-        return this.getStatus().equals(RegistryStatus.INCOMING);
+    public boolean isIncome() {
+        return this.getType().equals(RegistryType.INCOMING);
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Registry {
                 ", date=" + date +
                 ", category=" + category.getId() +
                 ", amount=" + amount +
-                ", status=" + status +
+                ", status=" + type +
                 '}';
     }
 }

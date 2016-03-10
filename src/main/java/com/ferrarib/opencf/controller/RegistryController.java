@@ -4,7 +4,7 @@ import com.ferrarib.opencf.filter.RegistryFilter;
 import com.ferrarib.opencf.model.Balance;
 import com.ferrarib.opencf.model.Category;
 import com.ferrarib.opencf.model.Registry;
-import com.ferrarib.opencf.model.RegistryStatus;
+import com.ferrarib.opencf.model.RegistryType;
 import com.ferrarib.opencf.service.CategoryService;
 import com.ferrarib.opencf.service.RegistryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,8 +74,8 @@ public class RegistryController {
     }
 
     @ModelAttribute("statuses")
-    public List<RegistryStatus> registryStatuses() {
-        return Arrays.asList(RegistryStatus.values());
+    public List<RegistryType> registryStatuses() {
+        return Arrays.asList(RegistryType.values());
     }
 
     @ModelAttribute("categories")

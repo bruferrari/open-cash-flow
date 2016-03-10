@@ -60,7 +60,7 @@ public class ByDateReportTest {
             reportRegistries = parseModel();
             reportRegistries.forEach(r -> {
                 System.out.println(r.getTitle() + " " + r.getId() + " " + r.getAmount() + " " + r.getCategory()
-                + " " + r.getStatus() + " " + r.getDate());
+                + " " + r.getType() + " " + r.getDate());
             });
         } catch (ParseException e) {
             e.printStackTrace();

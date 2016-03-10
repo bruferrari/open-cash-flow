@@ -12,7 +12,7 @@
             <th class="text-center">Date</th>
             <th class="text-right">Category</th>
             <th class="text-right">Amount</th>
-            <th class="text-center">Source</th>
+            <th class="text-center">Type</th>
         </tr>
         </thead>
 
@@ -24,8 +24,8 @@
             <td class="text-right" th:text="${registry.category.description}"></td>
             <td class="text-right" th:text="|R$ ${{registry.amount}}"></td>
             <td class="text-center" th:attr="data-role=${registry.id}">
-                            <span class="label" th:text="${registry.status.description}"
-                                  th:classappend="${(registry.credit) ? 'label-success' : 'label-danger'}"></span>
+                            <span class="label" th:text="${registry.type.description}"
+                                  th:classappend="${(registry.income) ? 'label-success' : 'label-danger'}"></span>
             </td>
         </tr>
 

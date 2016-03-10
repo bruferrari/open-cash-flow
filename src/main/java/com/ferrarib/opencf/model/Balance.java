@@ -26,12 +26,12 @@ public class Balance {
     private BigDecimal balance;
 
     public BigDecimal getIncoming() {
-        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.INCOMING))
+        return registries.stream().filter(r -> r.getType().equals(RegistryType.INCOMING))
                 .map(Registry::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
     public BigDecimal getOutgoing() {
-        return registries.stream().filter(r -> r.getStatus().equals(RegistryStatus.OUTGOING))
+        return registries.stream().filter(r -> r.getType().equals(RegistryType.OUTGOING))
                 .map(Registry::getAmount).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 

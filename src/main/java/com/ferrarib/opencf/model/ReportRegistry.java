@@ -34,7 +34,7 @@ public class ReportRegistry {
         return registry.getAmount();
     }
 
-    public String getStatus() {
-        return registry.getStatus().getDescription();
+    public String getType() {
+        return registry.getType().getDescription();
     }
 }
