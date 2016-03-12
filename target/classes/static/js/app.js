@@ -44,7 +44,7 @@ $(function() {
     $('input').on('change', function() { // listen to changes on inputs
         changed = true;
         $('.js-export-report').prop('disabled', true); // disabling export button
-        console.log(changed);
+        //console.log(changed);
     });
 });
 
@@ -66,16 +66,21 @@ function getReportData() {
     var from = $('#from').val();
     var to = $('#to').val();
     var formData = {from: from, to: to};
+    var csrfToken = $("meta[name='_csrf']").attr("content");
+    var csrfHeader = $("meta[name='_csrf_header']").attr("content");
 
     $.ajax({
         url: $('.js-generate-report').attr('href'),
         type: 'POST',
         data: formData,
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader(csrfHeader, csrfToken);
+        },
         success: function (data) {
             $('#reportDataTable').html(data);
         },
         error: function(xhr) {
-            console.log(xhr.status);
+            console.log(xhr.statusText);
         }
     });
 }
@@ -113,4 +118,15 @@ $(function() {
             $('#report-form').submit();
         });
     });
+});
+
+$(function() {
+    $.each($('#navbar').find('li'), function() {
+       $(this).toggleClass('active',
+           $(this).find('a').attr('href') == window.location.pathname);
+    });
+});
+
+$(function() {
+   $('#today-registries-table').find('tbody:last').append('<tr><td colspan="6"><button id="fast-registry-btn" class="btn btn-link"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Fast Registry</button></td></tr>')
 });

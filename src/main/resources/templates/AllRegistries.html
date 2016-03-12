@@ -13,7 +13,9 @@
         <div class="panel-heading">
             <div class="clearfix">
                 <h1 class="panel-title f-title-panel">Registries</h1>
-                <a class="btn btn-link f-link-panel" th:href="@{/registries/new}">New Registry</a>
+                <a class="btn btn-link f-link-panel" th:href="@{/registries/new}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Registry
+                </a>
             </div>
         </div>
 
@@ -39,7 +41,7 @@
             </form>
 
             <div class="table-responsive">
-                <table class="table table-striped table-hover">
+                <table id="today-registries-table" class="table table-striped table-hover">
                     <thead>
                     <tr>
                         <th class="text-center">#</th>
@@ -90,9 +92,25 @@
                         </tr>
                         </tbody>
                     </table>
+
                 </div>
 
             </div>
+
+            <!--<div style="background-color: #FF7043" class="col-md-3">-->
+                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.incoming}}"></p>-->
+                <!--<p class="mock-test-text">INCOMING</p>-->
+            <!--</div>-->
+
+            <!--<div style="background-color: #5C6BC0" class="col-md-3">-->
+                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.outgoing}}"></p>-->
+                <!--<p class="mock-test-text">OUTGOING</p>-->
+            <!--</div>-->
+
+            <!--<div style="background-color: #26A69A" class="col-md-3">-->
+                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.balance}}"></p>-->
+                <!--<p class="mock-test-text">BALANCE</p>-->
+            <!--</div>-->
 
         </div>
     </div>

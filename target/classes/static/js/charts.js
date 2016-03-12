@@ -2,6 +2,8 @@
  * Created by bruno on 3/1/16.
  */
 
+var contextPath = '/opencf';
+
 $(document).ready(function() {
    $(document).ajaxStart(function() {
        $('#wait_daily_balance_chart').css('display', 'block');
@@ -51,7 +53,7 @@ $(window).resize(function() {
 
 function drawDailyChart() {
     $.ajax({
-        url: '/reports/dailyBalance',
+        url: contextPath + '/reports/dailyBalance',
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();
@@ -100,7 +102,7 @@ function drawDailyChart() {
 
 function drawMonthlyChart() {
     $.ajax({
-        url: '/reports/monthlyBalance',
+        url: contextPath + '/reports/monthlyBalance',
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();
@@ -140,7 +142,7 @@ function drawMonthlyChart() {
 
 function drawCategoryOutgoingChart() {
     $.ajax({
-        url: '/reports/categoryOutgoing',
+        url: contextPath + '/reports/categoryOutgoing',
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();
@@ -180,7 +182,7 @@ function drawCategoryOutgoingChart() {
 
 function drawCategoryIncomingChart() {
     $.ajax({
-        url: '/reports/categoryIncoming',
+        url: contextPath + '/reports/categoryIncoming',
         dataType: 'json',
         success: function(jsonData) {
             var data = new google.visualization.DataTable();

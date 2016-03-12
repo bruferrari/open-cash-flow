@@ -10,8 +10,38 @@
     }
 }
 
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background-color: #f5f5f5;
+
+    /* Margin bottom by footer height */
+    margin-bottom: 90px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #193048;
+}
+
+body > .container {
+    padding: 60px 15px 0;
+}
+.container .text-muted {
+    margin: 20px 0;
+    color: #eeeeee;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,9 +51,19 @@ p, div {
     font-family: 'Open Sans';
 }
 
+.btn-link:hover {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* navbar styles */
+
 .navbar {
     min-height: 65px;
-    background-color: #4a336d;
+    background-color: #193048;
 }
 
 .navbar-nav li a {
@@ -31,16 +71,25 @@ p, div {
 }
 
 .navbar-brand {
-    color: white !important;
+    color: #fff !important;
 }
 
 .navbar-nav > li > a {
-    color: white !important;
+    color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav>.active> a {
+    background-color: transparent;
+    border-bottom: 3px solid #fff;
+}
+
+.navbar-inverse .navbar-nav>.active> a:hover {
+    background-color: transparent;
 }
 
 .dropdown-toggle:active, .open .dropdown-toggle {
-    background:#322348 !important;
-    color:#000 !important;
+    background:#0e1b29 !important;
+    color:#fff !important;
 }
 
 .navbar-brand-centered {
@@ -56,6 +105,11 @@ p, div {
     margin-left: -80px;
 }
 
+/* navbar styles END */
+
+
+
+/* custom styles */
 .bold {
     font-weight: bold;
 }
@@ -84,6 +138,9 @@ p, div {
     margin-right: 5px;
 }
 
+
+/* tabs hacks and styles */
+
 .tab-content {
     margin-top: 10px;
 }
@@ -99,3 +156,37 @@ p, div {
 .pill-content > .active {
     height: auto;       /* let the content decide it  */
 } /* bootstrap hack end */
+
+/* tabs hacks and styles END */
+
+.login-box {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.login-form {
+    margin: 200px 10px 5px 5px;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+.login-btn {
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.login-form label {
+    font-size: 16px;
+}
+
+.login-row {
+    margin-top: 15px;
+}
