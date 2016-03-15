@@ -12,19 +12,19 @@ import javax.persistence.Id;
 public class Role implements GrantedAuthority {
 
     @Id
-    private String roleName;
+    private String name;
 
-    public String getRoleName() {
-        return roleName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String getAuthority() {
-        return null;
+        return this.name;
     }
 
     @Override
@@ -34,12 +34,12 @@ public class Role implements GrantedAuthority {
 
         Role role = (Role) o;
 
-        return roleName.equals(role.roleName);
+        return name.equals(role.name);
 
     }
 
     @Override
     public int hashCode() {
-        return roleName.hashCode();
+        return name.hashCode();
     }
 }

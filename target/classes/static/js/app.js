@@ -128,5 +128,22 @@ $(function() {
 });
 
 $(function() {
-   $('#today-registries-table').find('tbody:last').append('<tr><td colspan="6"><button id="fast-registry-btn" class="btn btn-link"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Fast Registry</button></td></tr>')
+   $('#today-registries-table').find('tbody:last').append('<tr><td colspan="6"><button id="fast-registry-btn" class="btn btn-link">' +
+       '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Fast Registry</button></td></tr>')
 });
+
+$('#btn-pass-change').on('click', function(event) {
+    event.preventDefault();
+    $(this).hide();
+    $('.dummy-space').hide();
+
+   $('#newPassInput').html('<label for="newPasswd" class="col-sm-3 control-label">New Password</label>' +
+       '<div class="col-sm-8"><input type="password" class="form-control" id="newPasswd" name="newPassword" value/></div>');
+
+    $(function() {
+        $('#newPasswd').pwstrength({
+            ui: { showVerdictsInsideProgressBar: true }
+        });
+    });
+});
+

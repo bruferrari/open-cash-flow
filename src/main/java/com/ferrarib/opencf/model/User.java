@@ -1,12 +1,11 @@
 package com.ferrarib.opencf.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,10 +18,20 @@ public class User implements UserDetails {
 
     @Id
     private String email;
-    private String name;
+
+    @NotEmpty(message = "Password is required")
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @NotEmpty(message = "First name is required")
+    private String firstName;
+
+    @NotEmpty(message = "Last name is required")
+    private String lastName;
+
+    @Transient
+    private String newPassword;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Role> roles = new ArrayList<>();
 
     public String getEmail() {
@@ -33,12 +42,28 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 
     public List<Role> getRoles() {
@@ -55,7 +80,8 @@ public class User implements UserDetails {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        if(!password.isEmpty())
+            this.password = new BCryptPasswordEncoder().encode(password);
     }
 
     @Override
@@ -82,4 +108,9 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public void addBlankPasswd() {
+        this.password = new String();
+    }
+
 }

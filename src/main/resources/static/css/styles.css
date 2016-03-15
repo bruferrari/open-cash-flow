@@ -1,14 +1,14 @@
 /* large screen */
-@media ( min-width : 768px) {
-    .panel-default {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    .alert {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
+/*@media ( min-width : 768px) {*/
+    /*.panel-default {*/
+        /*margin-left: 10px;*/
+        /*margin-right: 10px;*/
+    /*}*/
+    /*.alert {*/
+        /*margin-left: 10px;*/
+        /*margin-right: 10px;*/
+    /*}*/
+/*}*/
 
 html {
     position: relative;
@@ -34,6 +34,7 @@ body {
 body > .container {
     padding: 60px 15px 0;
 }
+
 .container .text-muted {
     margin: 20px 0;
     color: #eeeeee;
@@ -159,22 +160,28 @@ a:hover {
 
 /* tabs hacks and styles END */
 
-.login-box {
-    position: absolute;
+/*.login-box {*/
+    /*position: absolute;*/
+    /*margin: auto;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+/*}*/
+
+/*.login-form {*/
+    /*margin: 200px 10px 5px 5px;*/
+/*}*/
+
+.content {
+    /*margin: 0 auto;*/
     margin: auto;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-}
-
-.login-form {
-    margin: 200px 10px 5px 5px;
-}
-
-.content {
-    margin: 0 auto;
     max-width: 450px;
+
 }
 
 .login-btn {

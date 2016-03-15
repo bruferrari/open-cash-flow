@@ -9,111 +9,99 @@
 
 <section layout:fragment="content">
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="clearfix">
-                <h1 class="panel-title f-title-panel">Registries</h1>
-                <a class="btn btn-link f-link-panel" th:href="@{/registries/new}">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Registry
-                </a>
+    <div class="container-fluid">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="clearfix">
+                    <h1 class="panel-title f-title-panel">Registries</h1>
+                    <a class="btn btn-link f-link-panel" th:href="@{/registries/new}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> New Registry
+                    </a>
+                </div>
             </div>
-        </div>
 
-        <div class="panel-body">
+            <div class="panel-body">
 
-            <form method="get" class="form-horizontal" th:action="@{/registries}" th:object="${filter}">
+                <form method="get" class="form-horizontal" th:action="@{/registries}" th:object="${filter}">
 
-                <div class="form-group">
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <input class="form-control" placeholder="Search by title..." autofocus="autofocus"
-                                th:field="*{title}"/>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Search by title..." autofocus="autofocus"
+                                       th:field="*{title}"/>
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default">
                                     <i class="glyphicon glyphicon-search"></i>
                                 </button>
                             </span>
+                            </div>
                         </div>
+                        <div th:if="${filter.title == null || #strings.isEmpty(filter.title)}"
+                             class="label label-default panel-default pull-right">Showing daily registries</div>
                     </div>
-                    <div th:if="${filter.title == null || #strings.isEmpty(filter.title)}"
-                         class="label label-default panel-default pull-right">Showing daily registries</div>
-                </div>
-            </form>
+                </form>
 
-            <div class="table-responsive">
-                <table id="today-registries-table" class="table table-striped table-hover">
-                    <thead>
-                    <tr>
-                        <th class="text-center">#</th>
-                        <th>Title</th>
-                        <th class="text-center">Date</th>
-                        <th class="text-right">Category</th>
-                        <th class="text-right">Amount</th>
-                        <th class="text-center">Type</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr th:each="registry : ${registries}">
-                        <td class="text-center" th:text="${registry.id}"></td>
-                        <td th:text="${registry.title}"></td>
-                        <td class="text-center" th:text="${{registry.date}}"></td>
-                        <td class="text-right" th:text="${registry.category.description}"></td>
-                        <td class="text-right" th:text="|R$ ${{registry.amount}}"></td>
-                        <td class="text-center" th:attr="data-role=${registry.id}">
-                            <span class="label" th:text="${registry.type.description}"
-                                  th:classappend="${(registry.income) ? 'label-success' : 'label-danger'}"></span>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="6" th:if="${#lists.isEmpty(registries)}">No records found.</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <div class="col-md-7 pull-right" th:if="${!filter.existing}">
-
-                    <table class="table table-striped table-hover">
+                <div class="table-responsive">
+                    <table id="today-registries-table" class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th class="text-center">Incoming</th>
-                            <th class="text-center">Outgoing</th>
-                            <th class="text-center">Balance</th>
+                            <th class="text-center">#</th>
+                            <th>Title</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-right">Category</th>
+                            <th class="text-right">Amount</th>
+                            <th class="text-center">Type</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <tr th:each="registry : ${registries}">
+                            <td class="text-center" th:text="${registry.id}"></td>
+                            <td th:text="${registry.title}"></td>
+                            <td class="text-center" th:text="${{registry.date}}"></td>
+                            <td class="text-right" th:text="${registry.category.description}"></td>
+                            <td class="text-right" th:text="|R$ ${{registry.amount}}"></td>
+                            <td class="text-center" th:attr="data-role=${registry.id}">
+                            <span class="label" th:text="${registry.type.description}"
+                                  th:classappend="${(registry.income) ? 'label-success' : 'label-danger'}"></span>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td class="text-center" th:text="|R$ ${{balance.incoming}}"></td>
-                            <td class="text-center" th:text="|R$ ${{balance.outgoing}}"></td>
-                            <td class="text-center f-balance-positive" th:text="|R$ ${{balance.balance}}"
-                                th:classappend="${balance.negative} ? 'f-balance-negative'"></td>
+                            <td colspan="6" th:if="${#lists.isEmpty(registries)}">No records found.</td>
                         </tr>
                         </tbody>
                     </table>
 
+                    <div class="col-md-7 pull-right" th:if="${!filter.existing}">
+
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Incoming</th>
+                                <th class="text-center">Outgoing</th>
+                                <th class="text-center">Balance</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td class="text-center" th:text="|R$ ${{balance.incoming}}"></td>
+                                <td class="text-center" th:text="|R$ ${{balance.outgoing}}"></td>
+                                <td class="text-center f-balance-positive" th:text="|R$ ${{balance.balance}}"
+                                    th:classappend="${balance.negative} ? 'f-balance-negative'"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
                 </div>
 
             </div>
-
-            <!--<div style="background-color: #FF7043" class="col-md-3">-->
-                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.incoming}}"></p>-->
-                <!--<p class="mock-test-text">INCOMING</p>-->
-            <!--</div>-->
-
-            <!--<div style="background-color: #5C6BC0" class="col-md-3">-->
-                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.outgoing}}"></p>-->
-                <!--<p class="mock-test-text">OUTGOING</p>-->
-            <!--</div>-->
-
-            <!--<div style="background-color: #26A69A" class="col-md-3">-->
-                <!--<p class="text-center mock-test" th:text="|R$ ${{balance.balance}}"></p>-->
-                <!--<p class="mock-test-text">BALANCE</p>-->
-            <!--</div>-->
-
         </div>
     </div>
+
 </section>
 
 </html>

@@ -8,79 +8,86 @@
 </head>
 
 <section layout:fragment="content">
-    <form class="form-horizontal" method="POST" th:action="@{/registries}" th:object="${registry}">
 
-    <div layout:include="DefaultMessage"></div>
-    <div layout:include="ErrorMessage"></div>
+    <div class="container-fluid">
+        <form class="form-horizontal" method="POST" th:action="@{/registries}" th:object="${registry}">
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <div class="clearfix">
-                <h1 class="panel-title f-title-panel">New Registry</h1>
-                <a class="btn btn-link f-link-panel" th:href="@{/registries}">Back</a>
-            </div>
-        </div>
+            <div layout:include="DefaultMessage"></div>
+            <div layout:include="ErrorMessage"></div>
 
-        <div class="panel-body">
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix">
+                        <h1 class="panel-title f-title-panel">New Registry</h1>
+                        <a class="btn btn-link f-link-panel" th:href="@{/registries}">Back</a>
+                    </div>
+                </div>
 
                 <div class="panel-body">
-                    <div class="form-group" th:classappend="${#fields.hasErrors('title')} ? has-error">
-                        <label for="title" class="col-sm-2 control-label">Title</label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" id="title" th:field="*{title}" />
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="category" class="col-sm-2 control-label">Category</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" id="category" th:field="*{category}">
-                                <option th:each="category : ${categories}" th:value="${category.id}"
-                                        th:text="${category.description}"></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" th:classappend="${#fields.hasErrors('amount')} ? has-error">
-                        <label for="amount" class="col-sm-2 control-label">Amount</label>
-                        <div class="col-sm-4">
-                            <input type="text" id="amount" class="form-control js-currency" th:field="*{amount}"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group" th:classappend="${#fields.hasErrors('date')} ? has-error">
-                        <label for="new-register-date" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-2">
-                            <div class="input-group">
-                                <input type="text" id="new-register-date" class="form-control" th:field="*{date}"
-                                       data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
-                                       data-date-today-highlight="true" data-date-orientation="bottom"/>
-                                <span class="input-group-addon fa fa-calendar" id="basic-addon1"></span>
+                    <div class="panel-body">
+                        <div class="form-group" th:classappend="${#fields.hasErrors('title')} ? has-error">
+                            <label for="title" class="col-sm-2 control-label">Title</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="title" th:field="*{title}" />
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="source" class="col-sm-2 control-label">Source</label>
-                        <div class="col-sm-4">
-                            <select class="form-control" id="source" th:field="*{type}">
-                                <option th:each="types : ${types}" th:value="${types}" th:text="${types.description}"></option>
-                            </select>
+                        <div class="form-group">
+                            <label for="category" class="col-sm-2 control-label">Category</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="category" th:field="*{category}">
+                                    <option th:each="category : ${categories}" th:value="${category.id}"
+                                            th:text="${category.description}"></option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
-                            </button>
+                        <div class="form-group" th:classappend="${#fields.hasErrors('amount')} ? has-error">
+                            <label for="amount" class="col-sm-2 control-label">Amount</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="amount" class="form-control js-currency" th:field="*{amount}"/>
+                            </div>
                         </div>
-                    </div>
 
+                        <div class="form-group" th:classappend="${#fields.hasErrors('date')} ? has-error">
+                            <label for="new-register-date" class="col-sm-2 control-label">Date</label>
+                            <div class="col-sm-2">
+                                <div class="input-group">
+                                    <input type="text" id="new-register-date" class="form-control" th:field="*{date}"
+                                           data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
+                                           data-date-today-highlight="true" data-date-orientation="bottom"/>
+                                    <span class="input-group-addon fa fa-calendar" id="basic-addon1"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="source" class="col-sm-2 control-label">Type</label>
+                            <div class="col-sm-4">
+                                <select class="form-control" id="source" th:field="*{type}">
+                                    <option th:each="types : ${types}" th:value="${types}" th:text="${types.description}"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-        </div>
+            </div>
+        </form>
+
     </div>
-    </form>
+
 </section>
 
 </html>

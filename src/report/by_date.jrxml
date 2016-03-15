@@ -11,7 +11,7 @@
 	</parameter>
 	<queryString>
 		<![CDATA[select r.id, r.title, r.amount, r.date, r.type, c.description as category from registry r inner join category c on r.category_id = c.id
-where r.date between $P{from} and $P{to} order by date]]>
+where r.date between $P{from} and $P{to} order by type, date]]>
 	</queryString>
 	<field name="id" class="java.lang.Long">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -29,17 +29,33 @@ where r.date between $P{from} and $P{to} order by date]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="category" class="java.lang.String"/>
-	<variable name="amount_1" class="java.math.BigDecimal" resetType="Page" calculation="Sum">
+	<variable name="amount_1" class="java.math.BigDecimal" resetType="Group" resetGroup="typeGroup" calculation="Sum">
 		<variableExpression><![CDATA[$F{amount}]]></variableExpression>
 	</variable>
-	<variable name="var1" class="java.lang.String"/>
+	<variable name="amount_2" class="java.lang.Integer" resetType="Page" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{amount}]]></variableExpression>
+	</variable>
+	<group name="typeGroup">
+		<groupExpression><![CDATA[$F{type}]]></groupExpression>
+		<groupFooter>
+			<band height="37">
+				<textField pattern="R$ #,##0.00">
+					<reportElement x="406" y="8" width="85" height="20" uuid="0b8aa2e3-bda0-419d-aff5-32260ed9da82"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="true" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{amount_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
 	<background>
 		<band/>
 	</background>
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#4A336D" uuid="486bbfc6-0784-4d02-a5eb-12f121c7720d"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#193048" uuid="486bbfc6-0784-4d02-a5eb-12f121c7720d"/>
 				<elementGroup>
 					<staticText>
 						<reportElement x="20" y="20" width="205" height="30" forecolor="#FFFFFF" uuid="1c806b13-34ee-45cf-8bfe-735482d57bae"/>
@@ -65,42 +81,42 @@ where r.date between $P{from} and $P{to} order by date]]>
 	<columnHeader>
 		<band height="27">
 			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="25" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="6ab1d35f-1517-4ebf-a55c-af825814da5c"/>
+				<reportElement mode="Opaque" x="0" y="0" width="25" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="6ab1d35f-1517-4ebf-a55c-af825814da5c"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[#]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="413" y="0" width="72" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cf601f08-7876-4d61-a5cf-dc9c71521188"/>
+				<reportElement mode="Opaque" x="413" y="0" width="72" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="cf601f08-7876-4d61-a5cf-dc9c71521188"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Amount]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="485" y="0" width="70" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="6f064c0a-96a0-4889-949e-469438204ce1"/>
+				<reportElement mode="Opaque" x="485" y="0" width="70" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="6f064c0a-96a0-4889-949e-469438204ce1"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Type]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="25" y="0" width="217" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="cdc716ba-dbff-4462-a105-46f2b0a0249c"/>
+				<reportElement mode="Opaque" x="25" y="0" width="217" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="cdc716ba-dbff-4462-a105-46f2b0a0249c"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Title]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="322" y="0" width="91" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="72d3676e-8cda-40e1-90ac-730d1138e697"/>
+				<reportElement mode="Opaque" x="322" y="0" width="91" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="72d3676e-8cda-40e1-90ac-730d1138e697"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Category]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="242" y="0" width="80" height="20" forecolor="#4A336D" backcolor="#E6E6E6" uuid="1e18857c-bd69-44f2-b482-73e1ca321ccb"/>
+				<reportElement mode="Opaque" x="242" y="0" width="80" height="20" forecolor="#193048" backcolor="#E6E6E6" uuid="1e18857c-bd69-44f2-b482-73e1ca321ccb"/>
 				<textElement textAlignment="Center">
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -152,9 +168,6 @@ where r.date between $P{from} and $P{to} order by date]]>
 			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band/>
-	</columnFooter>
 	<pageFooter>
 		<band height="41">
 			<textField>

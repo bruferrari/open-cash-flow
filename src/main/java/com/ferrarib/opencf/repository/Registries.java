@@ -28,7 +28,7 @@ public interface Registries extends JpaRepository<Registry, Long> {
 
     @Modifying
     @Transactional
-    @Query("select r from #{#entityName} r where r.date between ?1 and ?2")
+    @Query("select r from #{#entityName} r where r.date between ?1 and ?2 order by r.type, r.date")
     List<Registry> findByDateBetween(Date from, Date to);
 
     @Modifying

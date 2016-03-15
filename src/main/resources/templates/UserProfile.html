@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="DefaultLayout">
+<head>
+    <title>OCF - Edit Profile</title>
+</head>
+
+<section layout:fragment="content">
+
+    <div class="container-fluid">
+        <form class="form-horizontal" method="POST" th:action="@{/profile}" th:object="${user}">
+
+            <div layout:include="DefaultMessage"></div>
+            <div layout:include="ErrorMessage"></div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="clearfix">
+                        <h1 class="panel-title f-title-panel">Edit Profile</h1>
+                        <a class="btn btn-link f-link-panel" th:href="@{/reports}">Back</a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+
+                    <input type="hidden" th:field="*{email}" />
+
+                    <div class="col-xs-6">
+                        <div class="panel-body">
+                            <div class="form-group" >
+                                <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="oldPasswd" class="col-sm-3 control-label">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password" class="form-control" id="oldPasswd" th:field="*{password}"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-3 dummy-space"></div>
+                                <button class="btn btn-link" id="btn-pass-change"><span class="fa fa-key"></span> Change Password</button>
+                                <div id="newPassInput"></div>
+                            </div>
+
+                            <!--<div class="form-group" >-->
+                                <!--<label for="newPasswd" class="col-sm-3 control-label">New Password</label>-->
+                                <!--<div class="col-sm-8">-->
+                                    <!--<input type="password" class="form-control" id="newPasswd" th:field="*{newPassword}" />-->
+                                <!--</div>-->
+                            <!--</div>-->
+                    </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <td>Email</td>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td th:text="${user.email}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary pull-right">
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+    </div>
+
+</section>
+
+</html>
