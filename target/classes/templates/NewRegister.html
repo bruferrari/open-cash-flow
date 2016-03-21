@@ -21,7 +21,9 @@
                 <div class="panel-heading">
                     <div class="clearfix">
                         <h1 class="panel-title f-title-panel">New Registry</h1>
-                        <a class="btn btn-link f-link-panel" th:href="@{/registries}">Back</a>
+                        <a class="btn btn-link f-link-panel" th:href="@{/registries}">
+                            <i class="fa fa-arrow-left"></i> Back
+                        </a>
                     </div>
                 </div>
 
@@ -59,7 +61,7 @@
                                     <input type="text" id="new-register-date" class="form-control" th:field="*{date}"
                                            data-provide="datepicker" data-date-format="dd/mm/yyyy" data-auto-close="true"
                                            data-date-today-highlight="true" data-date-orientation="bottom"/>
-                                    <span class="input-group-addon fa fa-calendar" id="basic-addon1"></span>
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +78,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+                                    <i class="fa fa-floppy-o"></i> Save
                                 </button>
                             </div>
                         </div>

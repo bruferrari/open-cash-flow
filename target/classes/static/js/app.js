@@ -129,7 +129,7 @@ $(function() {
 
 $(function() {
    $('#today-registries-table').find('tbody:last').append('<tr><td colspan="6"><button id="fast-registry-btn" class="btn btn-link">' +
-       '<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Fast Registry</button></td></tr>')
+       '<span class="fa fa-plus" aria-hidden="true"></span> Fast Registry</button></td></tr>')
 });
 
 $('#btn-pass-change').on('click', function(event) {

@@ -60,6 +60,14 @@ a:hover {
     text-decoration: none;
 }
 
+.btn-primary {
+    background-color: #0275d8;
+}
+
+.table-row-2x > tr > td {
+    height: 50px;
+}
+
 /* navbar styles */
 
 .navbar {
