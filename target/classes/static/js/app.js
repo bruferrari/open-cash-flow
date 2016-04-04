@@ -115,23 +115,27 @@ $(function() {
             success: function(data) {
                 if(data == 'OK') {
                     if(errorClass){
-                        $('.err_msg_appended').remove();
-                        $('#reset_passwd_form').find('.form-group').removeClass('has-error');
+                        errorClass = false;
+                        $('.alert').remove();
+                        $('.reset-password-form').find('.form-group').removeClass('has-error');
                     }
                     $('#oldPasswd').val('');
                     $('#newPasswd').val('');
                     $('#reTypePasswd').val('');
+
+                    $('#msg-panel-group').append('<div class="alert alert-success" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                        'Password has been changed with success!</div>');
                 }
             },
             error: function(xhr) {
                 console.log(xhr);
-                if(errorClass != true) {
+                if(!errorClass) {
                     errorClass = true;
-                    $('#reset_passwd_form').find('.form-group').addClass('has-error');
-                    $('.passwd-btn-group').append('<div class="err_msg_appended">'
-                        + '<i class="fa-exclamation-circle"></i>'
-                        + '<p style="color: red; font-weight: bolder">'
-                        + 'Error while trying to reset password, check your password and submit again</p></div>')
+                    $('.reset-password-form').find('.form-group').addClass('has-error');
+                    $('#msg-panel-group').append('<div class="alert alert-danger" role="alert">' +
+                        '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                        'Error while trying to reset password, check your password and submit again</div>');
                 }
             }
         })

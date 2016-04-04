@@ -46,7 +46,8 @@
                             <div class="form-group">
                                 <label for="lastName" class="col-sm-3 control-label">Email</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" id="lastName" disabled="true" th:field="*{email}" />
+                                    <input type="text" class="form-control" id="lastName" disabled="true"
+                                           th:field="*{email}" />
                                 </div>
                             </div>
                         </div>
@@ -60,15 +61,16 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </form>
 
-        <h2>Reset Password</h2>
 
+    <div class="panel panel-default card-margin-fix reset-password-form">
+        <h2>Reset Password</h2>
         <div class="panel-body">
-            <form id="reset_passwd_form" class="form-inline" method="POST" th:object="${user}">
+            <div id="msg-panel-group"></div>
+
+            <form class="form-inline" method="POST" th:object="${user}">
                 <input id="user_email_hidden" type="hidden" th:field="*{email}" />
 
                 <div class="form-group">
@@ -94,17 +96,17 @@
 
                 <div class="form-group passwd-btn-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary pull-right btn-passwd-change" th:href="@{/profile/resetPassword}">
+                        <button type="submit" class="btn btn-primary pull-right btn-passwd-change"
+                                th:href="@{/profile/resetPassword}">
                             <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
                         </button>
                     </div>
                 </div>
-
             </form>
         </div>
 
     </div>
+</div>
 
 </section>
-
 </html>

@@ -192,3 +192,11 @@ a:hover {
 .login-row {
     margin-top: 15px;
 }
+
+.card-margin-fix > h2 {
+    margin-left: 15px;
+}
+
+.card-margin-fix > .panel-body {
+    margin-bottom: 20px;
+}
