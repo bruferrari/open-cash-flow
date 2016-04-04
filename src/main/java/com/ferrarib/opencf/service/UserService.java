@@ -31,7 +31,7 @@ public class UserService {
     public User getUserLoggedEntity() {
         userLogged = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User entityUser = users.findOne(userLogged.getEmail());
-        entityUser.addBlankPasswd();
+//        entityUser.addBlankPasswd();
 
         return entityUser;
     }
@@ -41,9 +41,42 @@ public class UserService {
         SecurityContextHolder.getContext().setAuthentication(auth);
     }
 
-    private boolean isPasswordMatch(User user) {
-        //TODO - implementation of passwd matching algorithm
+    public void updateBasicInformation(User user) {
+        User principal = users.findOne(user.getEmail());
+        user.setPassword(principal.getPassword());
+        users.save(user);
+    }
+
+    public boolean resetPassword(User user) {
+        if(!user.validatePasswordFields())
+            return false;
+
+        User principal = users.findOne(user.getEmail());
+        boolean matchResult = new BCryptPasswordEncoder().matches(user.getPassword(), principal.getPassword());
+        //check if both passwds are the same
+        if(matchResult)
+            try {
+                // check retype passwd
+                if (isPasswordMatch(user)) {
+                    user.setFirstName(principal.getFirstName());
+                    user.setLastName(principal.getLastName());
+
+                    //encrypt passwd and save on database
+                    String encryptedPassword = user.encryptPassword(user.getNewPassword());
+                    user.setPassword(encryptedPassword);
+                    users.save(user);
+                    System.out.println("Password reseted for user -> " + user.getEmail());
+
+                    return true;
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         return false;
+    }
+
+    private boolean isPasswordMatch(User user) {
+        return user.getNewPassword().equals(user.getRetypePassword()) ? true : false;
     }
 
     public boolean existsNewPasswd(User user) {

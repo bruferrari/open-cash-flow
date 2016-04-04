@@ -85,6 +85,59 @@ function getReportData() {
     });
 }
 
+//password change
+$(function() {
+    var errorClass = false;
+
+    $('.btn-passwd-change').on('click', function(event) {
+        event.preventDefault();
+
+        var id = $('#user_email_hidden').val();
+        var oldPasswd = $('#oldPasswd').val();
+        var newPasswd = $('#newPasswd').val();
+        var reType = $('#reTypePasswd').val();
+        var formData = {
+            email: id,
+            password: oldPasswd,
+            newPassword: newPasswd,
+            retypePassword: reType
+        };
+        var csrfToken = $("meta[name='_csrf']").attr("content");
+        var csrfHeader = $("meta[name='_csrf_header']").attr("content");
+
+        $.ajax({
+            url: $('.btn-passwd-change').attr('href'),
+            type: 'POST',
+            data: formData,
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader(csrfHeader, csrfToken);
+            },
+            success: function(data) {
+                if(data == 'OK') {
+                    if(errorClass){
+                        $('.err_msg_appended').remove();
+                        $('#reset_passwd_form').find('.form-group').removeClass('has-error');
+                    }
+                    $('#oldPasswd').val('');
+                    $('#newPasswd').val('');
+                    $('#reTypePasswd').val('');
+                }
+            },
+            error: function(xhr) {
+                console.log(xhr);
+                if(errorClass != true) {
+                    errorClass = true;
+                    $('#reset_passwd_form').find('.form-group').addClass('has-error');
+                    $('.passwd-btn-group').append('<div class="err_msg_appended">'
+                        + '<i class="fa-exclamation-circle"></i>'
+                        + '<p style="color: red; font-weight: bolder">'
+                        + 'Error while trying to reset password, check your password and submit again</p></div>')
+                }
+            }
+        })
+    });
+});
+
 function validateForm() {
     var isFormValid = true;
 

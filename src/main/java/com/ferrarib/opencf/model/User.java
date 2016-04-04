@@ -19,7 +19,7 @@ public class User implements UserDetails {
     @Id
     private String email;
 
-    @NotEmpty(message = "Password is required")
+//    @NotEmpty(message = "Password is required")
     private String password;
 
     @NotEmpty(message = "First name is required")
@@ -30,6 +30,9 @@ public class User implements UserDetails {
 
     @Transient
     private String newPassword;
+
+    @Transient
+    private String retypePassword;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Role> roles = new ArrayList<>();
@@ -66,6 +69,14 @@ public class User implements UserDetails {
         this.newPassword = newPassword;
     }
 
+    public String getRetypePassword() {
+        return retypePassword;
+    }
+
+    public void setRetypePassword(String retypePassword) {
+        this.retypePassword = retypePassword;
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
@@ -80,8 +91,7 @@ public class User implements UserDetails {
     }
 
     public void setPassword(String password) {
-        if(!password.isEmpty())
-            this.password = new BCryptPasswordEncoder().encode(password);
+        this.password = password;
     }
 
     @Override
@@ -111,6 +121,30 @@ public class User implements UserDetails {
 
     public void addBlankPasswd() {
         this.password = new String();
+    }
+
+    public String encryptPassword(String password) {
+        return new BCryptPasswordEncoder().encode(password);
+    }
+
+    private boolean isPasswordValid() {
+        return !(this.password == null || this.password.isEmpty());
+    }
+
+    private boolean isNewPasswordValid() {
+        return !(this.newPassword == null || this.newPassword.isEmpty());
+    }
+
+    private boolean isRetypePasswordValid() {
+        return !(this.retypePassword == null || this.retypePassword.isEmpty());
+    }
+
+    public boolean validatePasswordFields() {
+        if(!isPasswordValid() || !this.isNewPasswordValid()
+                || !this.isRetypePasswordValid())
+            return false;
+        else
+            return true;
     }
 
 }

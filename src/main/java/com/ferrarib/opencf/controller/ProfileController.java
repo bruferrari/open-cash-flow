@@ -1,14 +1,16 @@
 package com.ferrarib.opencf.controller;
 
+import com.ferrarib.opencf.exception.PasswordValidationException;
 import com.ferrarib.opencf.model.User;
-import com.ferrarib.opencf.repository.Users;
 import com.ferrarib.opencf.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -18,9 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
-
-    @Autowired
-    private Users users;
 
     @Autowired
     private UserService service;
@@ -37,16 +36,28 @@ public class ProfileController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String updateUserProfile(@Validated User user, Errors errors, RedirectAttributes attrb) {
+    public String updateBasicInformation(@Validated User user, Errors errors, RedirectAttributes attrb) {
 
         if(errors.hasErrors()) {
             return PROFILE_VIEW;
         }
         try {
-            users.save(user);
+            service.updateBasicInformation(user);
             service.flushAuthenticationToken(user); // flushing modifications on auth credentials
             attrb.addFlashAttribute("message", "Profile modifications saved!");
             return "redirect:/profile";
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @RequestMapping(value = "resetPassword", method = RequestMethod.POST)
+    public @ResponseBody HttpStatus resetPassword(User user) {
+
+        try {
+            if(!service.resetPassword(user)) throw new PasswordValidationException();
+            else return HttpStatus.OK;
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
